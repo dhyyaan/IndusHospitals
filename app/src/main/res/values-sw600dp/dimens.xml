@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="tab_twenty">30dp</dimen>
+    <dimen name="ten_dp">30dp</dimen>
+    <dimen name="thirty_dp2">45dp</dimen>
+    <dimen name="fifty_dp">80dp</dimen>
+    <dimen name="twenty_dp">100dp</dimen>
+    <dimen name="one_hundred_dp">150dp</dimen>
+    <dimen name="three_hundred_twenty_dp">340dp</dimen>
+    <dimen name="fourty">150dp</dimen>
+    <dimen name="fourty_status_dp">60dp</dimen>
+    <dimen name="menu_hight">50dp</dimen>
+    <dimen name="dash_board_ht">120dp</dimen>
+    <dimen name="login_top_mobile">50dp</dimen>
+
+
+
+</resources>

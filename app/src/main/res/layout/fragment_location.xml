@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout
+        android:id="@+id/fragContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/ll_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ll_address"
+            android:layout_alignParentTop="true" />
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/ll_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/five_dp"
+            android:paddingRight="@dimen/five_dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/five_dp"
+                android:gravity="left"
+                android:textColor="@color/outrageous_orange_orange"
+                android:textSize="@dimen/fifteen_sp" />
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:textSize="@dimen/thirteen_sp"
+                android:layout_below="@+id/tv_name"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp" />
+
+            <ImageView
+                android:id="@+id/ivCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_address"
+
+                android:layout_alignParentRight="true"
+                android:adjustViewBounds="true"
+                app:srcCompat="@mipmap/cancel" />
+
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/rippleGetDirections"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleDelayClick="true"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="bottom"
+                android:layout_below="@+id/tv_address"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnGetDirections"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_circular_green"
+                    android:elevation="@dimen/five_dp"
+                    android:paddingLeft="@dimen/ten_dp"
+                    android:paddingRight="@dimen/ten_dp"
+                    android:text="@string/text_get_direction"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_sp"
+                    android:textStyle="bold" />
+            </com.balysv.materialripple.MaterialRippleLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</FrameLayout>
+    </layout>

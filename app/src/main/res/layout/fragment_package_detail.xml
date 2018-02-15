@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="data" type="com.indushospitals.model.PackagesItem"/>
+        <import type="android.text.Html"/>
+    </data>
+    <FrameLayout
+        android:id="@+id/fragContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/rlResPackages"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty_dp"
+            android:orientation="horizontal">
+
+
+
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/eight_dp"
+                android:text="@{data.title}"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/eighteen_sp" />
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right|center_vertical"
+                android:paddingRight="@dimen/eight_dp"
+                android:text="@{data.price}"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/eighteen_sp"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/five_dp" >
+            <ScrollView
+                android:id="@+id/SCROLLER_ID"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+
+                android:fillViewport="true">
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:paddingLeft="@dimen/eight_dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{Html.fromHtml(data.description)}"
+                android:textSize="14sp" />
+            </ScrollView>
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/rippleCall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleDelayClick="true"
+                app:mrl_rippleHover="true"
+                android:layout_alignParentRight="true"
+                app:mrl_rippleOverlay="true"
+                android:gravity="top">
+            <LinearLayout
+                android:id="@+id/bottomButtonContactus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginRight="@dimen/five_dp">
+
+                <ImageView
+                    android:id="@+id/ivGifCall"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center" />
+
+                <com.indushospitals.utils.font.CenturyGothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_call_now"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/fifteen_sp"/>
+            </LinearLayout>
+            </com.balysv.materialripple.MaterialRippleLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>
+    </layout>

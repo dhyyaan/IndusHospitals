@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="dark_grey">#AEAEAE</color>
+    <color name="bright_grey_grey">#535456</color>
+    <color name="pattens_blue_blue">#1049A1</color>
+    <color name="tomato">#FB6540</color>
+    <color name="fruit_salad_green">#54B454</color>
+    <color name="ecinnabar_red">#E7492E</color>
+    <color name="outrageous_orange_orange">#F96233</color>
+    <color name="more_dark_grey">#411602</color>
+    <color name="more_very_light_grey">#ECECEC</color>
+    <color name="translucent_black">#80000000</color>
+</resources>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto" >
+    <data>
+        <variable name="viewModel" type="com.indushospitals.model.ValidationViewModel"/>
+    </data>
+
+<RelativeLayout
+    android:id="@+id/fragContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <LinearLayout
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/seventy_dp"
+            android:layout_height="@dimen/seventy_dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:elevation="@dimen/three_dp"
+            android:src="@mipmap/dr_gaurav"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="0dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="@dimen/ten_dp">
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:text="Doctor"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/fifteen_sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/location"
+                    android:tint="@android:color/white" />
+
+                <com.indushospitals.utils.font.CenturyGothicBold
+                    android:id="@+id/tv_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/five_dp"
+                    android:gravity="left|center"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:text="Indus Phase 1 Mohali punjab India"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/thirteen_sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@+id/profile"
+        android:id="@+id/scroolview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_marginRight="@dimen/ten_dp"
+                android:layout_marginTop="0dp"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_appointment_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <com.indushospitals.customview.CustomFontEditText
+                        android:id="@+id/et_appointment_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/date_picker2"
+                        android:focusable="false"
+                        android:hint="@string/text_appointment_date"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:textSize="15sp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <com.indushospitals.utils.font.CenturyGothicRegular
+                    android:id="@+id/tv_choose_slot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="-4dp"
+                    android:textSize="@dimen/fifteen_sp"
+                    android:text="@string/text_choose_slot" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/five_dp"
+                    android:orientation="horizontal">
+
+
+                    <RadioGroup
+                        android:id="@+id/rg_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatRadioButton
+                            android:id="@+id/rb_morning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_morning"
+                            android:textSize="15sp" />
+
+                        <android.support.v7.widget.AppCompatRadioButton
+                            android:id="@+id/rb_evening"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_evening"
+                            android:textSize="15sp" />
+
+                    </RadioGroup>
+
+
+                    <com.indushospitals.utils.font.CenturyGothicRegular
+                        android:id="@+id/tv_monning"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/text_morning"
+                        android:textSize="15sp" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:id="@+id/tv_evenning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:text="@string/text_evening"
+                            android:textSize="@dimen/fifteen_sp"/>
+
+                </RelativeLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_patient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    >
+
+                    <com.indushospitals.customview.CustomFontEditText
+                        android:id="@+id/et_patient_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_patient_name2"
+                        android:inputType="textCapWords"
+                        android:nextFocusDown="@+id/et_age"
+
+                        android:ems="10"
+                        android:textSize="15sp" />
+                    <requestFocus/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   >
+
+
+                    <com.indushospitals.customview.CustomFontEditText
+                        android:id="@+id/et_age"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_age"
+                        android:inputType="number"
+                        android:nextFocusDown="@+id/et_email"
+
+                        android:ems="10"
+                        android:textSize="15sp"
+                        android:typeface="normal" />
+                </android.support.design.widget.TextInputLayout>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.indushospitals.utils.font.CenturyGothicRegular
+                        android:id="@+id/tv_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:text="@string/text_gender"
+                        android:textSize="@dimen/fifteen_sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rb_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="@string/text_male"
+                        android:textSize="15sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rb_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="false"
+                        android:text="@string/text_female"
+                        android:textSize="15sp" />
+
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   >
+
+
+                    <com.indushospitals.customview.CustomFontEditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_email_id"
+                        android:inputType="textEmailAddress"
+                        android:nextFocusDown="@+id/et_contact_no"
+
+                        android:ems="10"
+                        android:textSize="15sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_contact_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   >
+
+                    <com.indushospitals.customview.CustomFontEditText
+                        android:id="@+id/et_contact_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_contact_no2"
+                        android:inputType="phone"
+                        android:ems="10"
+                        android:nextFocusDown="@+id/et_address"
+
+                        android:textSize="15sp" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   >
+
+                    <com.indushospitals.customview.CustomFontEditText
+                        android:id="@+id/et_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_address"
+                        android:ems="10"
+                        android:inputType="textCapWords"
+                        android:nextFocusDown="@+id/et_comments"
+
+                        android:textSize="15sp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/input_layout_comments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.indushospitals.customview.CustomFontEditText
+                        android:id="@+id/et_comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/text_additional_comments"
+                        android:inputType="textCapWords"
+                        android:ems="10"
+                        android:textSize="15sp" />
+                </android.support.design.widget.TextInputLayout>
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/rippleLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/ten_dp"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleDelayClick="true"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btn_submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_circular_green"
+                        android:elevation="5dp"
+                        android:focusable="true"
+                        android:paddingLeft="@dimen/ten_dp"
+                        android:paddingRight="@dimen/ten_dp"
+                        android:text="@string/text_submit"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/fifteen_sp" />
+</com.balysv.materialripple.MaterialRippleLayout>
+                <Space
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/space"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+            </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
+
+    </layout>

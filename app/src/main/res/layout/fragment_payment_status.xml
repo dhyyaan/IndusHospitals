@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout
+        android:id="@+id/fragContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/ten_dp">
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_bookfor_appointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/fourty_status_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:layout_gravity="center"
+                android:text="@string/text_book_for_appointment"
+                android:textSize="@dimen/twenty_sp" />
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_bookfor_appointment_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:layout_gravity="center"
+                android:text="Indus"
+                android:textColor="@color/more_dark_grey"
+                android:textSize="@dimen/eighteen_sp" />
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_tr_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fourty_status_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/text_trasaction_status"
+                android:textSize="@dimen/twenty_sp" />
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_tr_status_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:layout_gravity="center"
+                android:text="Success"
+                android:textColor="@color/more_dark_grey"
+                android:textSize="@dimen/eighteen_sp" />
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_trasaction_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fourty_status_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/text_trasaction_id"
+                android:textSize="@dimen/twenty_sp" />
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_trasaction_id_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:layout_gravity="center"
+                android:text="swdeew123fgfdgfdgg"
+                android:textColor="@color/more_dark_grey"
+                android:textSize="@dimen/eighteen_sp" />
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_text_trasaction_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/fourty_status_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:text="@string/text_trasaction_amount"
+                android:textSize="@dimen/twenty_sp" />
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/tv_text_trasaction_amount_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:layout_gravity="center"
+                android:text="₹ 200"
+                android:textColor="@color/more_dark_grey"
+                android:textSize="@dimen/eighteen_sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/twenty_dp">
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/rippleAnotherBooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+                    android:layout_weight="1"
+                    android:layout_gravity="center">
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btnAnotherBooking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_circular_green"
+                        android:elevation="@dimen/five_dp"
+                        android:paddingLeft="@dimen/five_dp"
+                        android:paddingRight="@dimen/five_dp"
+                        android:text="@string/text_make_booking"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/fifteen_sp" />
+                </com.balysv.materialripple.MaterialRippleLayout>
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="0dp" />
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/rippleDashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true"
+
+                    android:layout_weight="1"
+                    android:layout_gravity="center">
+
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/btnDashboard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_circular_green"
+                        android:elevation="@dimen/five_dp"
+                        android:paddingLeft="@dimen/five_dp"
+                        android:paddingRight="@dimen/five_dp"
+                        android:text="@string/text_dashboard"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/fifteen_sp" />
+                </com.balysv.materialripple.MaterialRippleLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

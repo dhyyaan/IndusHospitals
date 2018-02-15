@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="data" type="com.indushospitals.model.PackagesItem"/>
+        <variable name="callback" type="com.indushospitals.interfaces.listener.ActionCallback"/>
+    </data>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/eight_dp">
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mrl_rippleAlpha="0.1"
+        app:mrl_rippleDelayClick="true"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:id="@+id/rlResPackages"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fourty_dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/eight_dp"
+            android:layout_marginLeft="@dimen/eight_dp"
+            android:layout_marginBottom="@dimen/eight_dp"
+            android:weightSum="1"
+            android:onClick="@{() -> callback.onClick(data)}"   >
+
+
+
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/iv1"
+                android:layout_toRightOf="@+id/iv1"
+                android:gravity="center_vertical"
+                android:text="@{(data.title+'\n'+data.price)}"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="right"
+                android:layout_weight="0.1"
+                android:foregroundGravity="right"
+                android:tint="@android:color/white"
+                android:src="@drawable/right_arrow" />
+
+        </RelativeLayout>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="#989898"
+        android:visibility="visible" />
+
+</LinearLayout>
+    </layout>

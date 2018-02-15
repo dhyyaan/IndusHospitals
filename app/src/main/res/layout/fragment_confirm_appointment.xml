@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/twenty_dp">
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/ripple_pay_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleDelayClick="true"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                android:layout_gravity="center">
+            <RelativeLayout
+                android:id="@+id/rl_pay_confirm"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_gravity="top">
+
+                <LinearLayout
+                    android:layout_width="270dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.indushospitals.utils.font.CenturyGothicRegular
+                        android:id="@+id/tv_pay_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/circular_textview_pay_app"
+                        android:gravity="center"
+                        android:textSize="@dimen/fifteen_sp"
+                        android:text="@string/text_pay_confirm"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_pay_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    app:srcCompat="@mipmap/pay" />
+
+
+            </RelativeLayout>
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <LinearLayout
+                android:layout_width="268dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/fifteen_dp"
+                android:layout_marginLeft="@dimen/fifteen_dp"
+                android:layout_marginTop="@dimen/fifteen_dp"
+                android:orientation="horizontal">
+
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/black" />
+
+                <com.indushospitals.utils.font.CenturyGothicRegular
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="0.8"
+                    android:gravity="center"
+                    android:text="@string/text_or"
+                    android:textSize="@dimen/fifteen_sp"
+                    android:textColor="@android:color/black" />
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5"
+                    android:background="@android:color/black" />
+            </LinearLayout>
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/ripple_req_appointment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleDelayClick="true"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                android:layout_gravity="center">
+            <RelativeLayout
+                android:id="@+id/rl_req_appointment"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_gravity="bottom">
+
+                <LinearLayout
+                    android:layout_width="270dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.indushospitals.utils.font.CenturyGothicRegular
+                        android:id="@+id/tv_req_appointment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/circular_textview_req_app"
+                        android:gravity="center"
+                        android:textSize="@dimen/fifteen_sp"
+                        android:text="@string/text_request_appointment_text"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/iv_req_appointment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    app:srcCompat="@mipmap/pay" />
+
+
+            </RelativeLayout>
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                 android:layout_marginTop="@dimen/twenty_dp"
+                android:layout_marginBottom="@dimen/twenty_dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textSize="@dimen/fifteen_sp"
+                android:text="@string/text_pay_confirm_comment" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

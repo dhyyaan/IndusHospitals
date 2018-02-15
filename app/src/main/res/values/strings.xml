@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Indus Hospitals</string>
+    <string name="text_menu">Menu</string>
+    <string name="text_doctor_res">Doctor Registration</string>
+    <string name="text_book_appointment">Book an Appointment</string>
+    <string name="text_book_appointment2">Appointments</string>
+    <string name="text_continue">CONTINUE</string>
+    <string name="text_contact_us">Contact us</string>
+    <string name="text_about_healthcare">About Indus Healthcare</string>
+    <string name="text_feedback_query">Feedback/Query</string>
+    <string name="text_rate_app">Rate Our App</string>
+    <string name="text_share">Share</string>
+    <string name="text_privacy_policy">Privacy Policy</string>
+    <string name="text_we_care_patient">We Care Our Patient</string>
+    <string name="text_welcome">Loren ipsum dolor set amet,consectetur adipiscing elit.Aenean equismod laoreet.Proin gravida dolor sit amet lacus accusum et viverra justo commodo</string>
+    <string name="text_book_your_appointment">Book Your Appointment</string>
+    <string name="text_doc_appointment">Select the fields below to schedule your Doctor Appointment</string>
+    <string name="text_city">City</string>
+    <string name="text_speciality">Speciality</string>
+    <string name="text_hospital">Hospital\u002A</string>
+    <string name="text_doctors">Doctor</string>
+    <string name="text_button_continue">CONTINUE</string>
+    <string name="text_doctor_reg">Doctor Register</string>
+    <string name="text_register_info">Enter your Registration Information</string>
+    <string name="text_name">Name</string>
+    <string name="text_email">Email</string>
+    <string name="text_mobile">Mobile</string>
+    <string name="text_register">REGISTER</string>
+    <string name="text_have_account">Already have an Account? Sign in</string>
+    <string name="text_chk_msg">Check your message and enter OTP code below</string>
+    <string name="text_submit">SUBMIT</string>
+    <string name="text_otp_again">Send OTP again</string>
+
+    <string name="text_type_of_query">Type Of Query\u002A</string>
+    <string name="text_feedback">Feedback</string>
+    <string name="text_enquiry">Enquiry</string>
+    <string name="text_complaint">Complaint</string>
+    <string name="text_contact_no">Contact No</string>
+    <string name="text_type_here">Type Here</string>
+
+    <string name="text_facebook">Facebook</string>
+    <string name="text_twitter">Twitter</string>
+    <string name="text_whatsup">WhatsApp</string>
+    <string name="text_message">Message</string>
+    <string name="text_refered_patient">Patients</string>
+    <string name="text_refer_patient">REFER A PATIENT</string>
+    <string name="text_more">More</string>
+    <string name="text_patient_name">Refer Patient Name\u002A</string>
+    <string name="text_age">Age\u002A</string>
+    <string name="text_male">Male</string>
+    <string name="text_female">Female</string>
+    <string name="text_email_id">Email</string>
+    <string name="text_contact_no2">Contact Number\u002A</string>
+    <string name="text_address">Address</string>
+    <string name="text_additional_comments">Additional Comments</string>
+    <string name="text_appointment_date">Appointment Date</string>
+    <string name="text_choose_slot">Choose Slot</string>
+
+    <string name="text_morning">Morning</string>
+    <string name="text_evening">Evening</string>
+
+    <string name="text_pay_confirm">Pay &amp; Confirm\nAppointment</string>
+    <string name="text_request_appointment_text">Request Appointment</string>
+    <string name="text_or">OR</string>
+    <string name="text_pay_confirm_comment">If you are paying then your\nappointment will be confirmed</string>
+    <string name="text_request_appointment"><font color="#3F51B5">Tap to start typing...</font></string>
+    <string name="text_pay_u_money">PayUMoney</string>
+
+    <string name="text_test_report">Pathology Test Report</string>
+    <string name="text_booking_no">BOOKING NO </string>
+    <string name="text_next">Next</string>
+    <string name="text_report_msg">\u002AThe Lab Report will be available for the tests conducted last 15 days</string>
+
+    <string name="text_master_health_check">Master Health Check\n\u20B9 1500</string>
+    <string name="text_whole_body_check">Whole Body Check\n\u20B9 1200</string>
+    <string name="text_future_health_check">Future Health Check\n\u20B9 2500</string>
+    <string name="text_family_health_check">Family Health Check\n\u20B9 3500</string>
+    <string name="text_result_no">result(s) found</string>
+    <string name="text_button_filter">Filter</string>
+    <string name="text_city_name">City:-Mohali</string>
+    <string name="text_availability">Availability</string>
+    <string name="text_field">Orthopadics</string>
+    <string name="text_location">Indus Hospital Phase-1 Mohali</string>
+    <string name="text_morning_small">Morning</string>
+    <string name="text_evening_small">Evening</string>
+    <string name="text_timings">10:30am-1:30pm</string>
+    <string name="text_call">Oncall</string>
+    <string name="text_button_book_appointment">Book Appointment</string>
+
+    <string name="text_name_ask">Name\u002A</string>
+    <string name="text_email_ask">Email\u002A</string>
+    <string name="text_mobile_ask">Mobile\u002A</string>
+    <string name="text_description">Description</string>
+    <string name="text_hospital_name">Indus Super Speciality Hospital</string>
+    <string name="text_hos_address">Opp.DC Office, Sector-55, Phase-1, MOHALI, Punjab(India)\n160055, Ph:- +91-172-5222000</string>
+
+    <string name="in">In</string>
+    <string name="india">India</string>
+    <string name="text_btn_get_directions">Get Directions</string>
+    <string name="text_lab_report">Lab Report</string>
+    <string name="text_packages">Packages</string>
+    <string name="text_todate">08-02-2017</string>
+    <string name="text_to">To</string>
+    <string name="text_fromdate">08-03-2017</string>
+    <string name="text_call_now">Call Now</string>
+    <string name="text_enter_rs_phone_no">Enter your Registered Mobile Number</string>
+    <string name="text_login">Login</string>
+    <string name="text_notification">Notifications</string>
+    <string name="text_verification">Verification</string>
+    <string name="text_dash_board">Dashboard</string>
+    <string name="text_confirm_appointment">Confirm Appointment</string>
+    <string name="text_patient_form">Patient Form</string>
+    <string name="text_payment">Payment</string>
+    <string name="text_referred_history">Referred History</string>
+    <string name="text_search_result">Search Result</string>
+    <string name="text_locations">Locations</string>
+    <string name="text_contactus">Contact Us</string>
+    <string name="text_get_direction">Get Direction</string>
+    <string name="text_empty_field_msg">Please fill compulsory fields</string>
+    <string name="text_gender">Gender\u002A</string>
+    <string name="text_make_booking">Make Another Booking</string>
+    <string name="text_dashboard">Dashboard</string>
+    <string name="text_book_for_appointment">Book For Appointment</string>
+    <string name="text_trasaction_status">Trasaction Status</string>
+    <string name="text_trasaction_id">Trasaction ID</string>
+    <string name="text_trasaction_amount">Trasaction Amount</string>
+    <string name="text_doc_name">Doctor Name\u002A</string>
+    <string name="text_log_out">Logout</string>
+    <string name="text_reffered_patient">Refer A Patient</string>
+    <string name="text_contact_confermation">Thank you for Contact us.We will contact you soon.</string>
+    <string name="text_booking_status">Booking Status</string>
+    <string name="text_payment_status">Payment Status</string>
+    <string name="text_log_report">CLICK HERE TO REACH INDUS DIRECTLY</string>
+  <string name="txt_select_doctor" >Select Doctor</string>
+    <string name="txt_select_hospital" >Select Hospital</string>
+    <string name="txt_select_city" >Select City</string>
+    <string name="txt_city" >City</string>
+    <string name="txt_select_speciality" >Select Speciality</string>
+    <string name="txt_speciality" >Speciality</string>
+    <!--<string name="text_log_report"> <font color='#54B454'><a href=""><b>CLICK HERE</b></a></font> TO REACH INDUS DIRECTLY </string>-->
+    <string name="link_dont_have_account">Don’t have an Account? Sign Up</string>
+    <!-- <string name="link_dont_have_account"><font color='#000000'><b>Don’t have an Account?</b></font> <font color='#FB6540'><a href="">Sign Up</a></font></string>-->
+    <string name="text_package_detail">Package Detail</string>
+    <string name="text_social_media">Social Media</string>
+    <string name="text_hospitalc">Hospital</string>
+    <string name="text_doc_namec">Doctor Name</string>
+    <string name="text_referred_patient">Referred Patients</string>
+    <string name="hello_blank_fragment_dailog">We learn, we grow, and we step ahead to make this world a better place for all of us! At Indus Hospital. We understand the necessity of credible healthcare services in the world</string>
+
+    <string name="nameerror">Enter a valid name</string>
+    <string name="emailerror">Enter a valid email</string>
+    <string name="mobileerror">Enter a valid mobile</string>
+    <string name="dateerror">Enter a valid date</string>
+    <string name="ageerror">Enter a valid age</string>
+    <string name="text_type_heref">Type Here\u002A</string>
+    <string name="text_descriptionf">Description\u002A</string>
+    <string name="text_patient_name2">Patient Name\u002A</string>
+
+
+    <string name="text_about_indus_healthcare">We learn, we grow, and we step ahead to make this world a better place for all of us! At Indus Hospital, we understand the necessity of credible healthcare services in the world.
+    To provide competent, comprehensive, cost effective and environment friendly medical care to all.To be the destination of choice for healthcare.
+\n\n\nWe learn, we grow, and we step ahead to make this world a better place for all of us! At Indus Hospital, we understand the necessity of credible healthcare services in the world.
+    To provide competent, comprehensive, cost effective and environment friendly medical care to all.To be the destination of choice for healthcare.
+   We learn, we grow, and we step ahead to make this world a better place for all of us! At Indus Hospital, we understand the necessity of credible healthcare services in the world.
+    To provide competent, comprehensive, cost effective and environment friendly medical care to all.To be the destination of choice for healthcare.
+\n\n\nWe learn, we grow, and we step ahead to make this world a better place for all of us! At Indus Hospital, we understand the necessity of credible healthcare services in the world.
+    To provide competent, comprehensive, cost effective and environment friendly medical care to all.To be the destination of choice for healthcare. </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_pay_confirme">wqwwq</string>
+    <string name="title_activity_maps">Map</string>
+
+</resources>

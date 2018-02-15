@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "506708402947",
+    "firebase_url": "https://indus-hospitals-67e1d.firebaseio.com",
+    "project_id": "indus-hospitals-67e1d",
+    "storage_bucket": "indus-hospitals-67e1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506708402947:android:592b18c1bc1bbd71",
+        "android_client_info": {
+          "package_name": "com.indushospitals"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506708402947-3kmjmsmbn0hc1e7lbg6ad8u3negtf64a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.indushospitals",
+            "certificate_hash": "e3172f48ab8fde05909c41cb7de2b06c0e945f07"
+          }
+        },
+        {
+          "client_id": "506708402947-k2tu2pfqp3h1rbq9su6tunlr01jaub1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM_chlm_bXssawGDGRbG6vVMho6pFctxk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506708402947-k2tu2pfqp3h1rbq9su6tunlr01jaub1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities">
+        <item>Lucknow</item>
+        <item>Delhi</item>
+        <item>Bombe</item>
+        <item>Kolcutta</item>
+        <item>Chenni</item>
+        <item>Chandigargh</item>
+    </string-array>
+
+     <string-array name="speciality">
+        <item>Anesthesia</item>
+        <item>Cardiology</item>
+         <item>Dental</item>
+         <item>Darmatology</item>
+         <item>Dietetics</item>
+         <item>ENT</item>
+         <item>Gastroenterology</item>
+    </string-array>
+
+    <string-array name="hospital">
+         <item>Indus Hospital Phase-3B2</item>
+         <item>Indus Hygiea Phase-6</item>
+         <item>Indus Hygiea Phase-6</item>
+         <item>Indus Super Speciality Hospital Phase-1</item>
+        <item>Scan Lab Phase-3B2</item>
+
+    </string-array>
+
+    <string-array name="doctors">
+        <item>DR. PRANNAY GULATY</item>
+        <item>Dr. Sanchit k Badhwa</item>
+        <item>Dr. (Col) Sanjiv Seth</item>
+        <item>Dr. Amit Babbar</item>
+        <item>Dr. Amit Dhiman</item>
+
+    </string-array>
+<!--days for week view calender-->
+    <string-array name="days">
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
+        <item>S</item>
+    </string-array>
+</resources>

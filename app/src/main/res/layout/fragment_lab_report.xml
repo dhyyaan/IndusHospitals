@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <WebView
+        android:id="@+id/webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <LinearLayout
+        android:id="@+id/llGoWeb"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/twenty_dp"
+        android:layout_marginRight="@dimen/twenty_dp"
+        android:layout_marginTop="@dimen/twenty_dp">
+        <TextView
+            android:id="@+id/textViewGoWeb"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:text="@string/text_log_report" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/twenty_dp"
+        android:layout_marginRight="@dimen/twenty_dp"
+        android:layout_marginTop="@dimen/twenty_dp">
+        <com.indushospitals.utils.font.CenturyGothicBold
+            android:id="@+id/welcome_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:gravity="center"
+            android:padding="@dimen/ten_dp"
+            android:text="@string/text_test_report"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/twenty_sp" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_booking_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twenty_dp" >
+
+            <com.indushospitals.customview.CustomFontEditText
+                android:id="@+id/et_booking_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_booking_no" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_patient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.indushospitals.customview.CustomFontEditText
+                android:id="@+id/et_patient_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_mobile" />
+        </android.support.design.widget.TextInputLayout>
+        <com.indushospitals.utils.font.CenturyGothicRegular
+            android:id="@+id/tv_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:padding="@dimen/ten_dp"
+            android:text="@string/text_report_msg"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/eighteen_sp"
+            android:layout_marginTop="@dimen/ten_dp"/>
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/ripple_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleDelayClick="true"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true"
+            android:layout_marginTop="@dimen/twenty_dp"
+            android:layout_gravity="center">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/fruit_salad_green"
+                android:elevation="@dimen/five_dp"
+                android:paddingLeft="@dimen/ten_dp"
+                android:paddingRight="@dimen/ten_dp"
+                android:text="@string/text_next"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/twenty_sp" />
+        </com.balysv.materialripple.MaterialRippleLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<FrameLayout
+    android:id="@+id/fragContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/five_dp"
+        android:paddingRight="@dimen/five_dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/ten_dp">
+
+            <TextView
+                android:id="@+id/tvrefered"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:text="@string/text_refered_patient"
+                android:textSize="@dimen/fifteen_sp"
+                android:paddingLeft="@dimen/five_dp"
+                android:layout_weight="1"/>
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/rippleMore"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleDelayClick="true"
+                app:mrl_rippleHover="true"
+                android:layout_marginRight="10dp"
+                app:mrl_rippleOverlay="true">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_circular_blue"
+                    android:elevation="@dimen/five_dp"
+                    android:text="@string/text_button_filter"
+                    android:textAllCaps="false"
+                    android:padding="@dimen/five_dp"
+
+                    android:drawableLeft="@drawable/filter"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_sp" />
+            </com.balysv.materialripple.MaterialRippleLayout>
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/rippleSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleDelayClick="true"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                android:layout_gravity="right">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnReferPatient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_circular_blue"
+                    android:elevation="@dimen/five_dp"
+                    android:text="@string/text_refer_patient"
+                    android:textAllCaps="false"
+                    android:paddingLeft="@dimen/ten_dp"
+                    android:paddingRight="@dimen/ten_dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/fifteen_sp"
+                    android:textStyle="bold" />
+            </com.balysv.materialripple.MaterialRippleLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rw_dashboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/item_progress_bar"
+                app:layoutManager="LinearLayoutManager"
+                android:layout_marginTop="@dimen/five_dp" />
+
+            <ProgressBar
+                android:id="@+id/item_progress_bar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:elevation="@dimen/five_dp"
+                android:padding="@dimen/five_dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</FrameLayout>
+    </layout>
+

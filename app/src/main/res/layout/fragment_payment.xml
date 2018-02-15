@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<FrameLayout
+    android:id="@+id/fragContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <LinearLayout
+        android:id="@+id/llPayUMoney"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/fourty_dp">
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:mrl_rippleAlpha="0.1"
+            app:mrl_rippleDelayClick="true"
+            app:mrl_rippleHover="true"
+            app:mrl_rippleOverlay="true">
+
+            <RelativeLayout
+                android:id="@+id/rlPayUMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="1">
+
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_payumoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/ten_dp"
+                    android:gravity="center_vertical"
+                    android:src="@mipmap/payumoney" />
+
+                <com.indushospitals.utils.font.CenturyGothicRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/iv_payumoney"
+                    android:layout_toRightOf="@+id/iv_payumoney"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/twenty_dp"
+                    android:text="@string/text_pay_u_money"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="@dimen/twenty_dp"
+                    android:layout_height="@dimen/twenty_dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:layout_weight="0.1"
+                    android:foregroundGravity="right"
+                    android:src="@drawable/right_arrow" />
+
+            </RelativeLayout>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+    </LinearLayout>
+</FrameLayout>
+</layout>

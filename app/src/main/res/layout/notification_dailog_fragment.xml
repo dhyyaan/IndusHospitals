@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="data" type="com.indushospitals.model.NotificationItem"/>
+
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:minWidth="350dp">
+
+
+        <ImageView
+            android:id="@+id/ivCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|top"
+            app:srcCompat="@mipmap/cancel" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="horizontal"
+            android:gravity="top"
+            android:padding="@dimen/five_dp">
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="left|top"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/five_dp"
+                android:paddingRight="@dimen/five_dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/five_dp">
+
+                    <com.indushospitals.utils.font.CenturyGothicBold
+                        android:id="@+id/tv_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_weight="1"
+                        android:text="@{data.patient_name}"
+                        android:textColor="@color/outrageous_orange_orange"
+                        android:textSize="@dimen/twenty_sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_date_picker"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@mipmap/date_picker" />
+
+                        <com.indushospitals.utils.font.CenturyGothicBold
+                            android:id="@+id/tv_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="@dimen/five_dp"
+                            android:gravity="left|center"
+                            android:layout_gravity="left|center"
+                            android:text='@{data.apointment_time +" | " +data.apointment_date  }'
+                            android:textSize="@dimen/ten_sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/ten_sp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|bottom"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|top"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/iv_doctor"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/gender" />
+
+                            <com.indushospitals.utils.font.CenturyGothicBold
+                                android:id="@+id/tv_doctor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/five_dp"
+                                android:gravity="left|center"
+                                android:layout_gravity="left|center"
+                                android:text='@{data.gender +", Age:- "+ data.age}'
+                                android:textSize="@dimen/ten_sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="@dimen/ten_sp"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:id="@+id/iv_refer"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/refer_doctor" />
+
+                            <com.indushospitals.utils.font.CenturyGothicBold
+                                android:id="@+id/tv_refer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/five_dp"
+                                android:gravity="left|center"
+                                android:layout_gravity="left|center"
+                                android:text='@{"Referred doctor:-"+ data.doctor_name}'
+                                android:textSize="@dimen/ten_sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|top"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/ten_dp">
+
+                            <ImageView
+                                android:id="@+id/iv_location"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/location" />
+                            <com.indushospitals.utils.font.CenturyGothicBold
+                                android:id="@+id/tv_location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/five_dp"
+                                android:layout_gravity="left|center"
+                                android:gravity="left|center"
+
+                                android:text="@{data.address}"
+                                android:textSize="@dimen/ten_sp" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|top"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/ten_dp">
+
+                            <ImageView
+                                android:id="@+id/iv_chat"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@mipmap/comment" />
+
+                            <com.indushospitals.utils.font.CenturyGothicBold
+                                android:id="@+id/tv_chat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/five_dp"
+                                android:gravity="left|center"
+                                android:layout_gravity="center"
+                                android:text="@{data.comments}"
+                                android:textSize="@dimen/ten_sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <com.balysv.materialripple.MaterialRippleLayout
+                        android:id="@+id/rippleMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        app:mrl_rippleAlpha="0.1"
+                        app:mrl_rippleDelayClick="true"
+                        app:mrl_rippleHover="true"
+                        app:mrl_rippleOverlay="true">
+
+                    </com.balysv.materialripple.MaterialRippleLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

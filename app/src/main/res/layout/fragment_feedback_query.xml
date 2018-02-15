@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+        <data>
+
+            <variable name="viewModel" type="com.indushospitals.model.ValidationViewModel"/>
+
+        </data>
+<FrameLayout
+    android:id="@+id/fragContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.indushospitals.utils.font.CenturyGothicRegular
+                android:id="@+id/welcome_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:gravity="left"
+                android:text="@string/text_type_of_query"
+                android:textSize="@dimen/fifteen_sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/ten_dp">
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rBFeedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_feedback"
+                    android:checked="true"
+                    android:layout_weight="1" />
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rBEnquery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_enquiry"
+                    android:layout_weight="1" />
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rBComplaint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_complaint"
+                    android:layout_weight="1" />
+            </RadioGroup>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:setError="@{viewModel.userName.errorMessage}">
+
+                <com.indushospitals.customview.CustomFontEditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                  android:textSize="@dimen/fifteen_sp"
+                    android:maxLines="1"
+                    android:textColor="@color/colorPrimary"
+                    android:inputType="textCapWords"
+                    android:hint="@string/text_name_ask"
+                    android:text="@={viewModel.userName.value}"  />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:setError="@{viewModel.userEmail.errorMessage}" >
+
+                <com.indushospitals.customview.CustomFontEditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textSize="@dimen/fifteen_sp"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@={viewModel.userEmail.value}"
+                    android:hint="@string/text_email_ask" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_contact_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:setError="@{viewModel.userContact.errorMessage}"  >
+
+                <com.indushospitals.customview.CustomFontEditText
+                    android:id="@+id/et_contact_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:inputType="phone"
+                    android:textColor="@color/colorPrimary"
+                    android:hint="@string/text_contact_no2"
+                    android:textSize="@dimen/fifteen_sp"
+                    android:text="@={viewModel.userContact.value}"  />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_type_here"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/text_descriptionf">
+
+                <com.indushospitals.customview.CustomFontEditText
+                    android:id="@+id/et_type_here"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:inputType="text"
+                    android:scrollbars="vertical"
+                    android:hint="@string/text_type_heref"
+                    android:textSize="@dimen/fifteen_sp"
+                    android:maxLines="2"
+                    android:textColor="@color/colorPrimary" />
+            </android.support.design.widget.TextInputLayout>
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/rippleSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleDelayClick="true"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:layout_gravity="center">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_circular_green"
+                    android:elevation="@dimen/five_dp"
+                    android:text="@string/text_submit"
+                    android:textAllCaps="false"
+                    android:paddingLeft="@dimen/ten_dp"
+                    android:paddingRight="@dimen/ten_dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_sp"
+                    android:textStyle="bold" />
+            </com.balysv.materialripple.MaterialRippleLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+    </FrameLayout>
+    </layout>

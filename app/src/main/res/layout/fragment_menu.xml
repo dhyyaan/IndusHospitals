@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlResDoctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/five_dp"
+                        android:background="@color/more_very_light_grey"
+                        android:weightSum="1">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv1"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/refer_doctor" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:id="@+id/ivReferRes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toEndOf="@+id/iv1"
+                            android:layout_toRightOf="@+id/iv1"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_doctor_res"
+                            android:textSize="@dimen/fifteen_sp" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="right"
+                            android:layout_weight="0.1"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/right_arrow" />
+
+                    </RelativeLayout>
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey"
+                    android:visibility="visible" />
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlAboutIndus"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:background="@color/more_very_light_grey"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/five_dp"
+                        android:weightSum="1">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv3"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/about_healthcare" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/iv3"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_about_healthcare"
+
+                            android:textSize="@dimen/fifteen_sp" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/right_arrow" />
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey" />
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlFeedbak"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:background="@color/more_very_light_grey"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/five_dp"
+                        android:weightSum="1">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv4"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/feedback_query" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/iv4"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_feedback_query"
+
+                            android:textSize="@dimen/fifteen_sp" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/right_arrow" />
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey" />
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlContactus"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:orientation="horizontal"
+                        android:background="@color/more_very_light_grey"
+                        android:padding="@dimen/five_dp"
+                        android:weightSum="1">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv2"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/contact_us" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_contactus"
+
+                            android:textSize="@dimen/fifteen_sp"
+                            android:layout_alignParentTop="true"
+                            android:layout_toRightOf="@+id/iv2"
+                            android:layout_toEndOf="@+id/iv2" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/right_arrow" />
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey" />
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlShare"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/five_dp"
+                        android:background="@color/more_very_light_grey"
+                        android:weightSum="1">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv6"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/share" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/iv6"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_share"
+
+                            android:textSize="@dimen/fifteen_sp" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="right"
+                            android:layout_weight="0.1"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/right_arrow" />
+
+                    </RelativeLayout>
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey" />
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlRateApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:orientation="horizontal"
+                        android:background="@color/more_very_light_grey"
+                        android:padding="@dimen/five_dp"
+                        android:weightSum="1">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv5"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/rate_app" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/iv5"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_rate_app"
+
+                            android:textSize="@dimen/fifteen_sp"/>
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="right"
+                            android:layout_weight="0.1"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/right_arrow" />
+
+                    </RelativeLayout>
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey" />
+
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlPrivacyPolicy"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/five_dp"
+                        android:background="@color/more_very_light_grey"
+                        android:weightSum="1">
+
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv7"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/privacy_policy" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/iv7"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_privacy_policy"
+
+                            android:textSize="@dimen/fifteen_sp" />
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="right"
+                            android:layout_weight="0.1"
+                            android:foregroundGravity="right"
+                            android:src="@drawable/right_arrow" />
+
+                    </RelativeLayout>
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+
+                <View
+                    android:id="@+id/llogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey"
+                    android:visibility="visible" />
+
+
+
+
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/mrLogOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleAlpha="0.1"
+                    app:mrl_rippleDelayClick="true"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlLogOut"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/menu_hight"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/five_dp"
+                        android:background="@color/more_very_light_grey"
+                        android:weightSum="1">
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/iv8"
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="@dimen/ten_dp"
+                            android:gravity="center_vertical"
+                            android:src="@mipmap/log_out" />
+
+                        <com.indushospitals.utils.font.CenturyGothicRegular
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/iv8"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/twenty_dp"
+                            android:text="@string/text_log_out"
+
+                            android:textSize="@dimen/fifteen_sp"/>
+
+                        <android.support.v7.widget.AppCompatImageView
+                            android:layout_width="@dimen/thirty_dp"
+                            android:layout_height="@dimen/thirty_dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical|right"
+                            android:src="@drawable/right_arrow" />
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/dark_grey"
+                    android:visibility="visible" />
+
+
+                <RelativeLayout
+                    android:id="@+id/llSocialMedia"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="@dimen/menu_hight">
+
+
+                    <ImageView
+                        android:id="@+id/ivFacebook"
+                        android:layout_width="@dimen/thirty_dp2"
+                        android:layout_height="@dimen/thirty_dp2"
+                        android:src="@drawable/facebook"
+                        android:layout_marginLeft="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center_vertical"/>
+
+                    <ImageView
+                        android:id="@+id/ivTwitter"
+                        android:layout_width="@dimen/thirty_dp2"
+                        android:layout_height="@dimen/thirty_dp2"
+                        android:src="@drawable/twitter"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/ivFacebook"
+                        android:layout_toEndOf="@+id/ivFacebook"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center_vertical"/>
+                    <ImageView
+                        android:id="@+id/insta"
+                        android:layout_width="@dimen/thirty_dp2"
+                        android:layout_height="@dimen/thirty_dp2"
+                        android:src="@drawable/instagram"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/ivTwitter"
+                        android:layout_toEndOf="@+id/ivTwitter"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_gravity="center"/>
+                    <ImageView
+                        android:id="@+id/youtube"
+                        android:layout_width="@dimen/thirty_dp2"
+                        android:layout_height="@dimen/thirty_dp2"
+                        android:src="@drawable/you_tube"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/insta"
+                        android:layout_toEndOf="@+id/insta"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:gravity="center_vertical"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
