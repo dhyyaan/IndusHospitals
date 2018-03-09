@@ -27,7 +27,6 @@ import android.view.WindowManager;
 import android.view.animation.OvershootInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
-
 import com.android.volley.Request;
 import com.indushospitals.R;
 import com.indushospitals.api.ApiGetPostNoProgressBar;
@@ -41,15 +40,12 @@ import com.indushospitals.fragments.NotificationsFragment;
 import com.indushospitals.fragments.PackagesFragment;
 import com.indushospitals.interfaces.ServerCallBackObj;
 import com.indushospitals.utils.Config;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
 import com.indushospitals.utils.SharePreferenceData;
 import com.indushospitals.utils.font.CenturyGothicBold;
 import com.indushospitals.utils.font.CenturyGothicRegular;
-import com.payUMoney.sdk.PayUmoneySdkInitilizer;
 import com.sdsmdg.tastytoast.TastyToast;
-
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -66,11 +62,9 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
     public String datavalue;
     public Boolean selApt=false,selPack =false,selMore=false;
     private Boolean selLab=false;
-   // private String kk="";
     public String value="";
     private static final String TAG = WelcomeActivity.class.getSimpleName();
-   // private BroadcastReceiver mRegistrationBroadcastReceiver;
-    // private TextView txtRegId, txtMessage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,13 +73,12 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
         moreActivityBinding = DataBindingUtil.setContentView(this, R.layout.more_activity);
         self = this;
         if(getIntent().getBooleanExtra("getTip", false)){
-        showTip();
+            if(ConnectivityReceiver.isConnected()){
+                showTip();
+            }
+
          }
 
-
-    /*   if( moreActivityBinding.back .getVisibility() != View.VISIBLE){
-           moreActivityBinding.title.setPadding(20,0,0,0);
-       }*/
         moreActivityBinding.bottomButtonBookAppt.setOnClickListener(this);
         moreActivityBinding.bottomButtonPackages.setOnClickListener(this);
         moreActivityBinding.bottomButtonLabReport.setOnClickListener(this);
@@ -139,36 +132,52 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.bottomButtonBookAppt:
-                initFragments(0);
-                setBackgroundColor(0);
+                if(ConnectivityReceiver.isConnected()){
+                    initFragments(0);
+                    setBackgroundColor(0);
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
                 break;
             case R.id.bottomButtonPackages:
-                initFragments(1);
-                setBackgroundColor(1);
 
-
+                if(ConnectivityReceiver.isConnected()){
+                    initFragments(1);
+                    setBackgroundColor(1);
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
                 break;
 
             case R.id.bottomButtonLabReport:
-                initFragments(2);
-                setBackgroundColor(2);
+                if(ConnectivityReceiver.isConnected()){
+                    initFragments(2);
+                    setBackgroundColor(2);
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
                 break;
             case R.id.bottomButtonMore:
-                initFragments(3);
-                setBackgroundColor(3);
-
+                if(ConnectivityReceiver.isConnected()){
+                    initFragments(3);
+                    setBackgroundColor(3);
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
                 break;
             case R.id.logo:
-               if (SharePreferenceData.getString(this, Constents.LOGIN, "false").equals("true")) {
-                  datavalue =  MoreActivity.self.moreActivityBinding.title.getText().toString();
-                    MoreActivity.self.replaceFragment(NotificationsFragment.newInstance());
+                if(ConnectivityReceiver.isConnected()){
+                    if (SharePreferenceData.getString(this, Constents.LOGIN, "false").equals("true")) {
+                        datavalue =  MoreActivity.self.moreActivityBinding.title.getText().toString();
+                        MoreActivity.self.replaceFragment(NotificationsFragment.newInstance());
 
-                } else {
-
-                    TastyToast.makeText(this, "Please 'Sign in' to see notification!", TastyToast.LENGTH_LONG, TastyToast.INFO);
-
+                    } else {
+                        TastyToast.makeText(this, "Please 'Sign in' to see notification!", TastyToast.LENGTH_LONG, TastyToast.INFO);
+                    }
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
                 }
-
 
                 break;
         }
@@ -177,7 +186,9 @@ public class MoreActivity extends AppCompatActivity implements View.OnClickListe
   public void hideSoftKeyboard() {
         if (getCurrentFocus() != null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            if (inputMethodManager != null) {
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
         }
     }
 
@@ -348,22 +359,9 @@ if(!selPack) {
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 
-        if (requestCode == PayUmoneySdkInitilizer.PAYU_SDK_PAYMENT_REQUEST_CODE) {
-            //Toast.makeText(this,"",Toast.LENGTH_SHORT).show();
+      /*  if (requestCode == PayUmoneySdkInitilizer.PAYU_SDK_PAYMENT_REQUEST_CODE) {
 
-            /*if(data != null && data.hasExtra("result")){
-              String responsePayUmoney = data.getStringExtra("result");
-                if(SdkHelper.checkForValidString(responsePayUmoney))
-                    showDialogMessage(responsePayUmoney);
-            } else {
-                showDialogMessage("Unable to get Status of Payment");
-            }*/
-            // PaymentFragment.payUMoneyStatus(requestCode,  resultCode,  data);
-
-
-            //  payUMoneyStatus.payUMoneyStatus( requestCode, resultCode,data);
-
-        }
+        }*/
         //GPS enable
         if (requestCode == 1000) {
             if (resultCode == Activity.RESULT_OK) {
@@ -665,13 +663,6 @@ if(!selPack) {
 
                         dialog.show();
 
-              /*        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if(dialog!=null)
-                                    dialog.dismiss();
-                            }
-                        }, 2500);*/
 
 
                     }
@@ -680,7 +671,7 @@ if(!selPack) {
                 }
             }
         }).addQueue();
-       // kk="";
+
     }
 
     // Fetches reg id from shared preferences

@@ -30,7 +30,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
+                android:layout_height="0dp"
                 android:layout_gravity="top"
                 android:layout_marginTop="@dimen/ten_dp"
                 android:layout_weight="0.42"
@@ -41,15 +41,11 @@
                     android:id="@+id/profile_image"
                     android:layout_width="@dimen/sixty_dp"
                     android:layout_height="@dimen/sixty_dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true"
                     android:layout_gravity="left|top"
                     android:elevation="@dimen/three_dp"
                     app:imageUrl="@{data.image}"
-
                     app:civ_border_color="@android:color/white"
                     app:civ_border_width="0dp" />
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -67,9 +63,6 @@
                             android:id="@+id/tv_name"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentTop="true"
                             android:layout_weight="1"
                             android:singleLine="true"
                             android:marqueeRepeatLimit="marquee_forever"
@@ -83,8 +76,6 @@
                             android:id="@+id/tv_date"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentEnd="true"
                             android:layout_marginLeft="@dimen/five_dp"
                             android:layout_marginTop="4dp"
                             android:gravity="right|center"
@@ -95,13 +86,14 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:baselineAligned="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/ten_sp"
                         android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left|bottom"
                             android:layout_weight="1"
@@ -124,8 +116,6 @@
                                     android:id="@+id/tv_speciality"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_alignParentTop="true"
                                     android:layout_marginLeft="@dimen/five_dp"
                                     android:gravity="left|center"
                                     android:text="@{data.speciality}"
@@ -150,8 +140,6 @@
                                     android:id="@+id/tv_hospital"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_alignParentRight="true"
-                                    android:layout_alignParentTop="true"
                                     android:layout_marginLeft="@dimen/five_dp"
                                     android:gravity="left|center"
                                     android:text="@{data.hospital}"
@@ -172,8 +160,6 @@
                 android:id="@+id/tv_availability"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginLeft="@dimen/eight_dp"
                 android:gravity="left|center"
                 android:text="@string/text_availability"
@@ -319,8 +305,6 @@
                         android:id="@+id/tv_morning"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="@dimen/five_dp"
                         android:gravity="left|center"
                         android:text="@string/text_morning_small"
@@ -332,8 +316,6 @@
                     android:id="@+id/tv_time_slot"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
                     android:layout_marginLeft="@dimen/five_dp"
                     android:layout_weight="1"
                     android:layout_marginTop="4dp"
@@ -370,8 +352,6 @@
                         android:id="@+id/centuryGothicRegular"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="@dimen/five_dp"
                         android:gravity="left|center"
                         android:text="@string/text_evening_small"
@@ -383,8 +363,6 @@
                     android:id="@+id/tv_evening"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
                     android:layout_marginLeft="@dimen/five_dp"
                     android:layout_weight="1"
                     android:layout_marginTop="4dp"

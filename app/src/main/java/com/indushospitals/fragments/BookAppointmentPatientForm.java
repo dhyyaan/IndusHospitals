@@ -1,5 +1,6 @@
 package com.indushospitals.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.databinding.DataBindingUtil;
@@ -21,6 +22,7 @@ import com.indushospitals.api.baseurl.BaseUrl;
 import com.indushospitals.databinding.FragmentBookAppointmentPatientFormBinding;
 import com.indushospitals.interfaces.ServerCallBackObj;
 import com.indushospitals.model.ValidationViewModel;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
 import com.indushospitals.utils.SharePreferenceData;
 import com.sdsmdg.tastytoast.TastyToast;
@@ -97,6 +99,7 @@ public class BookAppointmentPatientForm extends Fragment {
         int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog mDatePicker=new DatePickerDialog(MoreActivity.self, new DatePickerDialog.OnDateSetListener() {
+            @SuppressLint("SetTextI18n")
             public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
 
 
@@ -161,6 +164,8 @@ if(isValidEmail(binding.etEmail.getText().toString())){
     params.put(Constents.ADDRESS, binding.etAddress.getText().toString());
     params.put(Constents.COMMENTS, binding.etComments.getText().toString());
 
+if(ConnectivityReceiver.isConnected()) {
+
 
     new ApiGetPostNoProgressBar(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.PATIENT_DETAIL, params, new ServerCallBackObj() {
         @Override
@@ -170,6 +175,7 @@ if(isValidEmail(binding.etEmail.getText().toString())){
 
                     Map<String, String> params = new HashMap<>();
                     params.put(Constents.ID, jsonObj.getJSONObject("data").getString("id"));
+
                     new ApiGetPostNoProgressBar(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.REQUEST_APPOINTMENT, params, new ServerCallBackObj() {
                         @Override
                         public void onSuccess(JSONObject jsonObj) {
@@ -188,7 +194,7 @@ if(isValidEmail(binding.etEmail.getText().toString())){
                                     pDialog.hide();
                                     MoreActivity.self.replaceFragment(BookingStatusFragment.newInstance());
 
-                                }else{
+                                } else {
                                     pDialog.hide();
                                     TastyToast.makeText(MoreActivity.self, jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.ERROR);
 
@@ -200,7 +206,6 @@ if(isValidEmail(binding.etEmail.getText().toString())){
                         }
                     }).addQueue();
 
-                  // MoreActivity.self.replaceFragment(ConfirmAppointmentFragment.newInstance(jsonObj.getJSONObject("data") + ""));this is only disable for some time as client needed all code i working previously if we comment this line
 
                 } else {
                     pDialog.hide();
@@ -213,6 +218,9 @@ if(isValidEmail(binding.etEmail.getText().toString())){
 
         }
     }).addQueue();
+}else{
+    TastyToast.makeText(getActivity(), "No internet connection!", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
+}
 
 }else {
     TastyToast.makeText(getActivity(), "Email is Invalid", TastyToast.LENGTH_SHORT, TastyToast.ERROR);

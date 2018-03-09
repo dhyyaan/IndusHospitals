@@ -46,9 +46,6 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-
-
-        // sharedpreferences = getApplicationContext().getSharedPreferences("Login", Context.MODE_PRIVATE);
     }
 
     public RequestQueue getRequestQueue() {

@@ -1,15 +1,12 @@
 package com.indushospitals.adapters;
 
 import com.indushospitals.R;
-
 import com.indushospitals.adapters.recyclerbindingadapter.DataBoundAdapter;
 import com.indushospitals.adapters.recyclerbindingadapter.DataBoundViewHolder;
+
 import com.indushospitals.databinding.ContactUsListItemBinding;
 import com.indushospitals.interfaces.listener.ActionCallback;
 import com.indushospitals.model.PackagesItem;
-
-
-
 import java.util.ArrayList;
 import java.util.List;
 

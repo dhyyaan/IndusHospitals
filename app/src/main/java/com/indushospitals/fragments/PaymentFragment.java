@@ -25,8 +25,8 @@ import com.android.volley.toolbox.Volley;
 import com.indushospitals.R;
 import com.indushospitals.activities.MoreActivity;
 import com.indushospitals.databinding.FragmentPaymentBinding;
-import com.payUMoney.sdk.PayUmoneySdkInitilizer;
-import com.payUMoney.sdk.SdkConstants;
+//import com.payUMoney.sdk.PayUmoneySdkInitilizer;
+//import com.payUMoney.sdk.SdkConstants;
 
 
 import org.json.JSONException;
@@ -77,7 +77,9 @@ public class PaymentFragment extends Fragment {
         binding.rlPayUMoney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makePayment();
+                //first uncomment  payUMoneysdk in settings.gradle file after that uncomment in app gradle file
+                // that after in More activity  onresult then uncomment makePayment() and soon ... calling method after it all working fine
+               // makePayment();
             }
         });
 
@@ -94,7 +96,7 @@ public class PaymentFragment extends Fragment {
     }
 
 
-    private double getAmount() {
+   /*  private double getAmount() {
 
 
         Double amount = 10.0;
@@ -107,7 +109,7 @@ public class PaymentFragment extends Fragment {
             return amount;
         }
     }
-    private boolean isDouble(String str) {
+   private boolean isDouble(String str) {
         try {
             Double.parseDouble(str);
             return true;
@@ -155,31 +157,8 @@ public class PaymentFragment extends Fragment {
 
         PayUmoneySdkInitilizer.PaymentParam paymentParam = builder.build();
 
-//             server side call required to calculate hash with the help of <salt>
-//             <salt> is already shared along with merchant <key>
-     /*        serverCalculatedHash =sha512(key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|<salt>)
 
-             (e.g.)
-
-             sha512(FCstqb|0nf7|10.0|product_name|piyush|test@payu.in||||||MBgjYaFG)
-
-             9f1ce50ba8995e970a23c33e665a990e648df8de3baf64a33e19815acd402275617a16041e421cfa10b7532369f5f12725c7fcf69e8d10da64c59087008590fc
-*/
-
-        // Recommended
-        calculateServerSideHashAndInitiatePayment(paymentParam);
-
-//        testing purpose
-
-       /* String salt = "";
-        String serverCalculatedHash=hashCal(key+"|"+txnId+"|"+getAmount()+"|"+productName+"|"
-                +firstName+"|"+email+"|"+udf1+"|"+udf2+"|"+udf3+"|"+udf4+"|"+udf5+"|"+salt);
-
-        paymentParam.setMerchantHash(serverCalculatedHash);
-
-        PayUmoneySdkInitilizer.startPaymentActivityForResult(MyActivity.this, paymentParam);*/
-
-    }
+    }*/
 
 
 
@@ -203,7 +182,7 @@ public class PaymentFragment extends Fragment {
         }
         return hexString.toString();
     }
-
+/*
 
 
     private void calculateServerSideHashAndInitiatePayment(final PayUmoneySdkInitilizer.PaymentParam paymentParam) {
@@ -266,12 +245,13 @@ public class PaymentFragment extends Fragment {
             }
         };
         Volley.newRequestQueue(getActivity()).add(jsonObjectRequest);
-    }
+    }*/
     @Override
     public void onResume() {
         MoreActivity.self.moreActivityBinding.title.setText(getResources().getString(R.string.text_payment));
         super.onResume();
     }
+/*
 
 
 
@@ -314,7 +294,8 @@ public class PaymentFragment extends Fragment {
                 }
             }
 
-    }
+
+    }*/
     private static void showDialogMessage(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MoreActivity.self);
         builder.setTitle(TAG);

@@ -1,5 +1,6 @@
 package com.indushospitals.fragments;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -59,6 +60,7 @@ public class RefferedHistoryFragment extends   Fragment{
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -137,6 +139,7 @@ private void search(){
         params.put(Constents.LOGIN_ID, SharePreferenceData.getString(MoreActivity.self, Constents.DOCTOR_ID, "null"));
         params.put(Constents.PAGE, String.valueOf(nextPageNo));
         new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.SEARCH_REFERRAL_HISTORY, params, new ServerCallBackObj() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onSuccess(JSONObject jsonObj) {
 
@@ -148,10 +151,7 @@ private void search(){
                         Type type = new TypeToken<List<DashboardItem>>() {
                         }.getType();
                         List<DashboardItem> items = gson.fromJson("" + jsonObj.getJSONArray("data"), type);
-                        for (int i = 0; i < items.size(); i++) {
-                            mPackagesList.add(items.get(i));
-
-                        }
+                        mPackagesList.addAll(items);
                         adapter = new DashBoardBindingAdapter(MoreActivity.self, new ActionCallback2() {
                             @Override
                             public void onClick(DashboardItem dashboardItem) {
@@ -193,6 +193,7 @@ private void search(){
             params.put(Constents.LOGIN_ID, SharePreferenceData.getString(MoreActivity.self, Constents.DOCTOR_ID, "null"));
             params.put(Constents.PAGE, String.valueOf(nextPageNo));
             new ApiGetPostNoProgressBar(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.SEARCH_REFERRAL_HISTORY, params, new ServerCallBackObj() {
+                @SuppressLint("SetTextI18n")
                 @Override
                 public void onSuccess(JSONObject jsonObj) {
 
@@ -204,10 +205,7 @@ private void search(){
                             Type type = new TypeToken<List<DashboardItem>>() {
                             }.getType();
                             List<DashboardItem> items = gson.fromJson("" + jsonObj.getJSONArray("data"), type);
-                            for (int i = 0; i < items.size(); i++) {
-                                mPackagesList.add(items.get(i));
-
-                            }
+                            mPackagesList.addAll(items);
 
                             if (binding.rwDashboard.getVisibility() == View.INVISIBLE)
                                 binding.rwDashboard.setVisibility(View.VISIBLE);

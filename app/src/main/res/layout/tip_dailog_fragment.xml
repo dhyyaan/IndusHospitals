@@ -4,8 +4,6 @@
          android:layout_width="match_parent"
          android:layout_height="match_parent"
          android:orientation="vertical"
-         android:layout_alignParentTop="true"
-         android:layout_alignParentRight="true"
          android:gravity="center">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -20,7 +18,6 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:text="@string/text_we_care_patient"
             android:textColor="@android:color/white"
             android:textSize="20sp"
@@ -31,8 +28,6 @@
             android:id="@+id/welcome_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:gravity="center"
             android:padding="4dp"
             android:layout_marginTop="10dp"

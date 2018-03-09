@@ -12,11 +12,14 @@ import android.widget.ArrayAdapter;
 import com.android.volley.Request;
 import com.indushospitals.R;
 import com.indushospitals.activities.MoreActivity;
+import com.indushospitals.activities.WelcomeActivity;
 import com.indushospitals.api.ApiGetPostData;
 import com.indushospitals.api.baseurl.BaseUrl;
 import com.indushospitals.databinding.FragmentBookAppointmentBinding;
 import com.indushospitals.interfaces.ServerCallBackObj;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
+import com.sdsmdg.tastytoast.TastyToast;
 
 
 import org.json.JSONException;
@@ -430,24 +433,26 @@ public class BookAppointmentFragment extends Fragment {
                     default:
 
                 }
+              if(ConnectivityReceiver.isConnected()){
 
-                new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.EVENING_MORNING, paramsSubmitAppointment, new ServerCallBackObj() {
-                    @Override
-                    public void onSuccess(JSONObject jsonObj) {
+                  new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.EVENING_MORNING, paramsSubmitAppointment, new ServerCallBackObj() {
+                      @Override
+                      public void onSuccess(JSONObject jsonObj) {
 
-                        try {
-                            if (jsonObj.getString("status").equals("true")) {
-                                obj = jsonObj;
+                          try {
+                              if (jsonObj.getString("status").equals("true")) {
+                                  obj = jsonObj;
+                                  MoreActivity.self.replaceFragment(SearchResultFragment.newInstance(paramsSubmitAppointment));
+                              }
+                          } catch (JSONException e) {
+                              e.printStackTrace();
+                          }
+                      }
+                  }).addQueue();
+                   }else{
+                  TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+              }
 
-                                MoreActivity.self.replaceFragment(SearchResultFragment.newInstance(paramsSubmitAppointment));
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-
-                    }
-                }).addQueue();
 
 
 

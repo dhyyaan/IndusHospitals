@@ -34,7 +34,7 @@ public class ReferPatientDailogFragment extends DialogFragment {
                 .buildRoundRect(item.getSn(), ColorGenerator.MATERIAL.getRandomColor(),100); // radius in px
         binding.imageView.setImageDrawable(drawable);
         binding.setData(item);
-       binding.ivCancel.setOnClickListener(new View.OnClickListener() {
+        binding.ivCancel.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                getDialog().dismiss();

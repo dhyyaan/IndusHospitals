@@ -12,7 +12,7 @@ public class BaseUrl {
     public static final String  FEEDBACK = "feedback";
     public static final String  PRIVACY_POLICY = "privacy_policy";
     public static final String  ABOUT_HEALTHCARE = "about_indus_healthcare";
-    public static final String  CONTACT = "contact";
+  /*  public static final String  CONTACT = "contact";*/
     public static final String  ALL_PACKAGE = "all_package";
     public static final String  USER_LOGIN = "user_login";
     public static final String  GET_LOCATION = "get_location";
@@ -22,11 +22,11 @@ public class BaseUrl {
     public static final String  NOTIFICATION = "notification";
     public static final String  REFERRAL = "referral";
     public static final String  SEARCH_REFERRAL_HISTORY = "search_referral_history";
-    public static final String  SELECT_CITY = "select_city";
+/*    public static final String  SELECT_CITY = "select_city";
     public static final String  SELECT_SPECIALITY = "select_specility";
     public static final String  SELECT_HOSPITAL = "select_hospital";
     public static final String  SELECT_DOCTOR = "select_doctor";
-    public static final String  SELECT_RESULT = "search_result";
+    public static final String  SELECT_RESULT = "search_result";*/
     public static final String  REQUEST_APPOINTMENT = "request_appointment";
     public static final String  COUNT_NOTIFICATION = "count_notification";
     public static final String  ALL_HOSPITAL = "all_hospital";

@@ -1,7 +1,11 @@
 package com.indushospitals.fragments;
 
+import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -14,6 +18,8 @@ import android.widget.Toast;
 
 import com.indushospitals.R;
 import com.indushospitals.activities.MoreActivity;
+import com.indushospitals.utils.AppController;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
 import com.indushospitals.utils.SharePreferenceData;
 import com.indushospitals.utils.font.CenturyGothicRegular;
@@ -109,37 +115,75 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onClick(View view) {
 
        switch (view.getId()) {
            case R.id.rlResDoctor:
-                if(SharePreferenceData.getString(getActivity(), Constents.LOGIN,"false").equals("true"))
-                    // Store the Fragment in stack
-                    MoreActivity.self.replaceFragment(DashBoardFragment.newInstance());
-                else
-                    MoreActivity.self.replaceFragment(DoctorRegistrationFragment.newInstance());
+               if(ConnectivityReceiver.isConnected()){
+                   if(SharePreferenceData.getString(getActivity(), Constents.LOGIN,"false").equals("true"))
+                       // Store the Fragment in stack
+                       MoreActivity.self.replaceFragment(DashBoardFragment.newInstance());
+                   else
+                       MoreActivity.self.replaceFragment(DoctorRegistrationFragment.newInstance());
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                 break;
            case R.id.rlAboutIndus:
-               MoreActivity.self.replaceFragment(AboutIndusHealthcareFragment.newInstance());
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.replaceFragment(AboutIndusHealthcareFragment.newInstance());
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
            case R.id.rlFeedbak:
-               MoreActivity.self.replaceFragment(FeedbackQueryFragment.newInstance());
+
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.replaceFragment(FeedbackQueryFragment.newInstance());
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
            case R.id.rlContactus:
-               MoreActivity.self.replaceFragment(ContactUsFragment.newInstance());
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.replaceFragment(ContactUsFragment.newInstance());
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
            case R.id. rlPrivacyPolicy:
-               MoreActivity.self.replaceFragment(PrivacyPolicyFragment.newInstance());
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.replaceFragment(PrivacyPolicyFragment.newInstance());
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
            case R.id.rlShare:
-               Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-               sharingIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.think360.hospitalIndus.indus");
-               sharingIntent.setType("text/plain");
-               startActivity(Intent.createChooser(sharingIntent,"Share using"));
+
+               if(ConnectivityReceiver.isConnected()){
+                   Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                   sharingIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.think360.hospitalIndus.indus");
+                   sharingIntent.setType("text/plain");
+                   startActivity(Intent.createChooser(sharingIntent,"Share using"));
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
             case R.id.rlRateApp:
-               Toast.makeText(MoreActivity.self,"In progress",Toast.LENGTH_SHORT).show();
+                if(ConnectivityReceiver.isConnected()){
+                    rateApp();
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
                 break;
            case R.id. rlLogOut:
                AlertDialog.Builder alertDialog = new AlertDialog.Builder(MoreActivity.self);
@@ -176,20 +220,42 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
 
                break;
            case R.id.ivFacebook:
-               MoreActivity.self.moreActivityBinding.title.setText("Facebook");
-               MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://www.facebook.com/Indushospitals/"));
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.moreActivityBinding.title.setText("Facebook");
+                   MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://www.facebook.com/Indushospitals/"));
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
            case R.id.ivTwitter:
-               MoreActivity.self.moreActivityBinding.title.setText("Twitter");
-               MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://twitter.com/IndusCareforYOU"));
+
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.moreActivityBinding.title.setText("Twitter");
+                   MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://twitter.com/IndusCareforYOU"));
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
            case R.id.insta:
-               MoreActivity.self.moreActivityBinding.title.setText("Instagram");
-               MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://www.instagram.com/indushospital/"));
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.moreActivityBinding.title.setText("Instagram");
+                   MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://www.instagram.com/indushospital/"));
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+               }
+
                break;
            case R.id.youtube:
-               MoreActivity.self.moreActivityBinding.title.setText("YouTube");
-               MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://www.youtube.com/channel/UCWCX1mCMpU2uaD-wXqAB9Rg"));
+               if(ConnectivityReceiver.isConnected()){
+                   MoreActivity.self.moreActivityBinding.title.setText("YouTube");
+                   MoreActivity.self.replaceFragment(SocialMediaFragment.newInstance("https://www.youtube.com/channel/UCWCX1mCMpU2uaD-wXqAB9Rg"));
+               }else{
+                   TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+
+               }
+
                break;
 
         }
@@ -200,5 +266,33 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         MoreActivity.self.moreActivityBinding.title.setText(getResources().getString(R.string.text_menu));
         super.onResume();
     }
-
+    public void rateApp()
+    {
+        try
+        {
+            Intent rateIntent = rateIntentForUrl("market://details");
+            startActivity(rateIntent);
+        }
+        catch (ActivityNotFoundException e)
+        {
+            Intent rateIntent = rateIntentForUrl("https://play.google.com/store/apps/details");
+            startActivity(rateIntent);
+        }
+    }
+    private Intent rateIntentForUrl(String url)
+    {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format("%s?id=%s", url,MoreActivity.self.getPackageName())));
+        int flags = Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
+        if (Build.VERSION.SDK_INT >= 21)
+        {
+            flags |= Intent.FLAG_ACTIVITY_NEW_DOCUMENT;
+        }
+        else
+        {
+            //noinspection deprecation
+            flags |= Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET;
+        }
+        intent.addFlags(flags);
+        return intent;
+    }
 }

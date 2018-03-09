@@ -22,7 +22,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 
 public class SearchResultBindingAdapter extends DataBoundAdapter<SearchResultListRowBinding> {
-    List<SearchResultItem> mSearchResultList = new ArrayList<>();
+     List<SearchResultItem> mSearchResultList = new ArrayList<>();
     private ActionCallback3 mActionCallback3;
     public SearchResultBindingAdapter(ActionCallback3 actionCallback3, List<SearchResultItem> mSearchResultList) {
         super(R.layout.search_result_list_row);
@@ -42,11 +42,12 @@ public class SearchResultBindingAdapter extends DataBoundAdapter<SearchResultLis
     public int getItemCount() {
         return mSearchResultList.size();
     }
+
     @BindingAdapter({"app:imageUrl"})
-    public static void loadImage(CircleImageView view, String url) {
-if(url.equals(""))
-    view.setImageResource(R.mipmap.dr_gaurav);
-        else
-    Glide.with(MoreActivity.self).load(url).into(view);
-    }
+     public static void loadImage(CircleImageView view, String url) {
+       if(url.equals(""))
+        view.setImageResource(R.mipmap.dr_gaurav);
+         else
+         Glide.with(MoreActivity.self).load(url).into(view);
+        }
 }

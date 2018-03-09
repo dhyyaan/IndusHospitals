@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class NotificationBindingAdapter  extends DataBoundAdapter<NotificationItemBinding> {
-    List<NotificationItem> mPackagesList = new ArrayList<>();
+     List<NotificationItem> mPackagesList = new ArrayList<>();
     private ActionCallback4 mActionCallback;
     private Activity activity;
     public NotificationBindingAdapter(Activity activity, ActionCallback4 actionCallback, List<NotificationItem> mPackagesList) {
@@ -34,11 +34,6 @@ public class NotificationBindingAdapter  extends DataBoundAdapter<NotificationIt
                             List<Object> payloads) {
         holder.binding.setData(mPackagesList.get(position));
         holder.binding.setCallback(mActionCallback);
-      /*  if(mPackagesList.get(position).getRead_unread().equals("0")){
-            holder.binding.cardView.setCardBackgroundColor(Color.GRAY);
-        }else{
-            holder.binding.cardView.setCardBackgroundColor(Color.WHITE);
-        }*/
 
         TextDrawable drawable = TextDrawable.builder(activity)
                 .buildRoundRect(mPackagesList.get(position).getSn(), ColorGenerator.MATERIAL.getRandomColor(),100); // radius in px

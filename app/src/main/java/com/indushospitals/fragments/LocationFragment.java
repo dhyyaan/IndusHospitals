@@ -42,6 +42,7 @@ import com.indushospitals.R;
 import com.indushospitals.activities.MoreActivity;
 import com.indushospitals.databinding.FragmentLocationBinding;
 import com.indushospitals.model.LocationIndus;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.sdsmdg.tastytoast.TastyToast;
 
 
@@ -231,14 +232,15 @@ public class LocationFragment extends Fragment implements OnMapReadyCallback, Go
                         binding.btnGetDirections.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Uri gmmIntentUri = Uri.parse("http://maps.google.com/maps?saddr=" + mLastLocation.getLatitude() + "," + mLastLocation.getLongitude() + "&daddr=" + ContactUsFragment. mPackagesListl.get(id).getLat() + "," + ContactUsFragment.mPackagesListl.get(id).getLang() + "&mode=driving");
-                                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                                mapIntent.setPackage("com.google.android.apps.maps");
-                                mapIntent.setFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
-                                startActivity(mapIntent);
-
-
-
+                                if(ConnectivityReceiver.isConnected()){
+                                    Uri gmmIntentUri = Uri.parse("http://maps.google.com/maps?saddr=" + mLastLocation.getLatitude() + "," + mLastLocation.getLongitude() + "&daddr=" + ContactUsFragment. mPackagesListl.get(id).getLat() + "," + ContactUsFragment.mPackagesListl.get(id).getLang() + "&mode=driving");
+                                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                                    mapIntent.setPackage("com.google.android.apps.maps");
+                                    mapIntent.setFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
+                                    startActivity(mapIntent);
+                                }else{
+                                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                                }
                             }
                         });
 

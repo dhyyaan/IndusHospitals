@@ -25,6 +25,7 @@ import com.indushospitals.api.baseurl.BaseUrl;
 import com.indushospitals.databinding.FragmentDoctorRegistrationBinding;
 import com.indushospitals.interfaces.ServerCallBackObj;
 import com.indushospitals.model.ValidationViewModel;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
 import com.indushospitals.utils.SharePreferenceData;
 import com.sdsmdg.tastytoast.TastyToast;
@@ -67,7 +68,12 @@ public class DoctorRegistrationFragment extends Fragment implements View.OnClick
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
-                MoreActivity.self. replaceFragment(LoginFragment.newInstance());
+                if(ConnectivityReceiver.isConnected()){
+                    MoreActivity.self. replaceFragment(LoginFragment.newInstance());
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "No internet connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
             }
             @Override
             public void updateDrawState(TextPaint ds) {
@@ -123,45 +129,49 @@ public class DoctorRegistrationFragment extends Fragment implements View.OnClick
                                 params.put(Constents.EMAIL, binding.etEmail.getText().toString());
                                 params.put(Constents.MOBILE, binding.etMobile.getText().toString());
 
-                                new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL+BaseUrl.USER_REG,params ,new ServerCallBackObj() {
-                                    @Override
-                                    public void onSuccess(JSONObject jsonObj) {
+                                if(ConnectivityReceiver.isConnected()) {
+                                 new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.USER_REG, params, new ServerCallBackObj() {
+                               @Override
+                               public void onSuccess(JSONObject jsonObj) {
 
-                                        try {
-                                            if (jsonObj.getString("status").equals("true")) {
+                                try {
+                                    if (jsonObj.getString("status").equals("true")) {
 
-                                                TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.INFO);
+                                     TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.INFO);
 
-                                                SharePreferenceData.saveString(MoreActivity.self, "doctor_id", jsonObj.getJSONObject("data").getString("doctor_id"));
-                                                MoreActivity.self.replaceFragment(OtpVerificationFragment.newInstance());
-                                                binding.etName.setText("");
-                                                binding.etEmail.setText("");
-                                                binding.etMobile.setText("");
-                                            } else if (jsonObj.getString("status").equals("false")) {
-                                                TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.ERROR);
-                                            }
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
+                                    SharePreferenceData.saveString(MoreActivity.self, "doctor_id", jsonObj.getJSONObject("data").getString("doctor_id"));
+                                    MoreActivity.self.replaceFragment(OtpVerificationFragment.newInstance());
+                                    binding.etName.setText("");
+                                    binding.etEmail.setText("");
+                                    binding.etMobile.setText("");
+                                    } else if (jsonObj.getString("status").equals("false")) {
+                                      TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                                      }
+                                      } catch (JSONException e) {
+                                         e.printStackTrace();
+                                      }
+                                      }
+
+                                   }).addQueue();
+
+                                  }else{
+                                       TastyToast.makeText(getActivity(), "No internet connection!", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
                                     }
-                                }).addQueue();
-
-                            }
-                            else{
-                                TastyToast.makeText(getActivity(), "Please enter valid email id", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
-                            }
-
-
-                        }
-                        else{
-                          //code
+                                }
+                                 else{
+                                    TastyToast.makeText(getActivity(), "Please enter valid email id", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
+                                   }
+                              }
+                               else {
+                            //code
                             Map<String, String> params = new HashMap<>();
 
                             params.put(Constents.NAME, binding.etName.getText().toString());
                             params.put(Constents.EMAIL, binding.etEmail.getText().toString());
                             params.put(Constents.MOBILE, binding.etMobile.getText().toString());
 
-                            new ApiGetPostData(MoreActivity.self, Request.Method.POST,BaseUrl.BASE_URL+BaseUrl.USER_REG,params ,new ServerCallBackObj() {
+                            if (ConnectivityReceiver.isConnected()) {
+                                new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.USER_REG, params, new ServerCallBackObj() {
                                 @Override
                                 public void onSuccess(JSONObject jsonObj) {
 
@@ -187,6 +197,9 @@ public class DoctorRegistrationFragment extends Fragment implements View.OnClick
                                     }
                                 }
                             }).addQueue();
+                        }else{
+                                TastyToast.makeText(MoreActivity.self, "No internet connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                            }
                         }
 
 

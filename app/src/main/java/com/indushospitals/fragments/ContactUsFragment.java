@@ -113,13 +113,14 @@ public class ContactUsFragment extends Fragment {
 
          contacts = (LinearLayout)view.findViewById(R.id.ll_contacts);
 
-        iv_contacts = (ImageView)view.findViewById(R.id.iv_contacts);
+         iv_contacts = (ImageView)view.findViewById(R.id.iv_contacts);
          tv_contacts = (CenturyGothicRegular)view.findViewById(R.id.tv_contacts);
 
 
         contacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 contacts.setBackground(  ResourcesCompat.getDrawable(getResources(), R.drawable.contactus_rectangle, null));
                 loc.setBackgroundColor(Color.TRANSPARENT);
                 iv_contacts.setImageResource(R.drawable.contact_us_white);
@@ -171,13 +172,9 @@ public class ContactUsFragment extends Fragment {
 
             switch (position) {
                 case 0:
-
                     return ContactFragment.newInstance();
-
-              case 1:
-
-    return LocationFragment.newInstance();
-
+                case 1:
+                    return LocationFragment.newInstance();
                 default:
                     return null;
             }

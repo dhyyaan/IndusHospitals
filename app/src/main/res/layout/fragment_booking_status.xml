@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout
         android:id="@+id/fragContainer"
@@ -8,6 +9,7 @@
         android:background="@android:color/white"
         android:clickable="true"
         android:focusable="true"
+        tools:ignore="ContentDescription,HardcodedText,DisableBaselineAlignment,UnusedAttribute"
         android:focusableInTouchMode="true">
         <LinearLayout
             android:orientation="vertical"
@@ -22,14 +24,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 app:srcCompat="@mipmap/splash_logo"
-                android:layout_marginTop="@dimen/twenty_dp"/>
+                android:layout_marginTop="@dimen/twenty_dp" />
             <com.indushospitals.utils.font.CenturyGothicRegular
                 android:id="@+id/tv_about_healthcare"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginTop="@dimen/fourty"
                 android:gravity="center"
                 android:inputType="textMultiLine"
@@ -66,7 +65,8 @@
                         android:text="@string/text_make_booking"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/fifteen_sp" />
+                        android:textSize="@dimen/fifteen_sp"
+                        tools:ignore="UnusedAttribute" />
                 </com.balysv.materialripple.MaterialRippleLayout>
 
                 <com.balysv.materialripple.MaterialRippleLayout
@@ -94,7 +94,8 @@
                         android:text="@string/text_dashboard"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
-                        android:textSize="@dimen/fifteen_sp" />
+                        android:textSize="@dimen/fifteen_sp"
+                        />
                 </com.balysv.materialripple.MaterialRippleLayout>
             </LinearLayout>
         </LinearLayout>

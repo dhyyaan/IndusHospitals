@@ -23,9 +23,10 @@ import com.indushospitals.api.baseurl.BaseUrl;
 import com.indushospitals.customview.circulartextview.TextDrawable;
 import com.indushospitals.databinding.WelcomeActivityMainBinding;
 import com.indushospitals.interfaces.ServerCallBackObj;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.font.CenturyGothicBold;
 import com.indushospitals.utils.font.CenturyGothicRegular;
-
+import com.sdsmdg.tastytoast.TastyToast;
 
 
 import org.json.JSONException;
@@ -43,6 +44,7 @@ public class WelcomeActivity extends RuntimePermissionsActivity implements View.
     private String titletext,descripiontext;
     private MyViewPagerAdapter myViewPagerAdapter;
     private int[] layouts;
+    private boolean tt = true;
 
 
     @Override
@@ -132,16 +134,6 @@ public class WelcomeActivity extends RuntimePermissionsActivity implements View.
         }
     };
 
-    /**
-     * Making notification bar transparent
-
-    private void changeStatusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        }
-    }
 
 
 
@@ -152,7 +144,7 @@ public class WelcomeActivity extends RuntimePermissionsActivity implements View.
     public class MyViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
 
-        public MyViewPagerAdapter() {
+        private MyViewPagerAdapter() {
         }
 
         @Override
@@ -198,10 +190,10 @@ public class WelcomeActivity extends RuntimePermissionsActivity implements View.
     protected void onStart() {
         super.onStart();
 
-       Thread t = new Thread() {
+        Thread   t = new Thread() {
             @Override
             public void run() {
-                while (true) {
+                while (tt) {
                     try {
                         // checking for last page
                         // if last page home screen will be launched
@@ -230,40 +222,40 @@ public class WelcomeActivity extends RuntimePermissionsActivity implements View.
     protected void onPostResume() {
         super.onPostResume();
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
-
-                Map<String, String> params = new HashMap<>();
-                new ApiGetPostNoProgressBar(WelcomeActivity.this, Request.Method.GET, BaseUrl.BASE_URL + BaseUrl.HEALTH_TIPS, params, new ServerCallBackObj
-                        () {
-                    @Override
-                    public void onSuccess(JSONObject jsonObj) {
-
-
-                        try {
-                            if (jsonObj.getString("status").equals("true")) {
-                                JSONObject jsonObject=jsonObj.getJSONObject("data");
-                                titletext=jsonObject.getString("title");
-                                descripiontext=jsonObject.getString("description");
-                                myViewPagerAdapter = new MyViewPagerAdapter();
-                                welcomeActivityMainBinding.  viewPager.setAdapter(myViewPagerAdapter);
-                                myViewPagerAdapter.notifyDataSetChanged();
-                                welcomeActivityMainBinding.  viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
-
-                                drawable1 = TextDrawable.builder(WelcomeActivity.this)
-                                        .buildRoundRect("", Color.WHITE,100); // radius in px
-                                drawable2 = TextDrawable.builder(WelcomeActivity.this)
-
-                                        .buildRoundRect("", Color.parseColor("#54B554"),100); // radius in px
-                                welcomeActivityMainBinding.ivDot1.setImageDrawable(drawable2);
-                                welcomeActivityMainBinding.ivDot2.setImageDrawable(drawable1);
+        if(ConnectivityReceiver.isConnected()){
+            Map<String, String> params = new HashMap<>();
+             new ApiGetPostNoProgressBar(WelcomeActivity.this, Request.Method.GET, BaseUrl.BASE_URL + BaseUrl.HEALTH_TIPS, params, new ServerCallBackObj
+            () {
+        @Override
+        public void onSuccess(JSONObject jsonObj) {
 
 
+                  try {
+                        if (jsonObj.getString("status").equals("true")) {
+                        JSONObject jsonObject=jsonObj.getJSONObject("data");
+                        titletext=jsonObject.getString("title");
+                        descripiontext=jsonObject.getString("description");
+                        myViewPagerAdapter = new MyViewPagerAdapter();
+                        welcomeActivityMainBinding.  viewPager.setAdapter(myViewPagerAdapter);
+                        myViewPagerAdapter.notifyDataSetChanged();
+                        welcomeActivityMainBinding.  viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        drawable1 = TextDrawable.builder(WelcomeActivity.this)
+                            .buildRoundRect("", Color.WHITE,100); // radius in px
+                         drawable2 = TextDrawable.builder(WelcomeActivity.this)
+
+                            .buildRoundRect("", Color.parseColor("#54B554"),100); // radius in px
+                         welcomeActivityMainBinding.ivDot1.setImageDrawable(drawable2);
+                         welcomeActivityMainBinding.ivDot2.setImageDrawable(drawable1);
+
                         }
-                    }
-                }).addQueue();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }).addQueue();
+}
+
 
     }
 
@@ -271,12 +263,15 @@ public class WelcomeActivity extends RuntimePermissionsActivity implements View.
     public void onBackPressed() {
         super.onBackPressed();
         handle.removeCallbacksAndMessages(null);
+        tt = false;
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         handle.removeCallbacksAndMessages(null);
+        tt = false;
+
     }
 
 
@@ -291,24 +286,56 @@ public class WelcomeActivity extends RuntimePermissionsActivity implements View.
 
         switch (v.getId()) {
             case R.id.bottomButtonBookAppt:
-                loginRegister.putExtra("getfragment",0);
-                loginRegister.putExtra("getTip",true);
+                if(ConnectivityReceiver.isConnected()){
+                    tt = false;
+                    loginRegister.putExtra("getfragment",0);
+                    loginRegister.putExtra("getTip",true);
+                    startActivity(loginRegister);
+                    finish();
+                }else{
+                    TastyToast.makeText(WelcomeActivity.this, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
                 break;
             case R.id.bottomButtonPackages:
-                loginRegister.putExtra("getfragment",1);
-                loginRegister.putExtra("getTip",true);
+                if(ConnectivityReceiver.isConnected()){
+                    tt = false;
+                    loginRegister.putExtra("getfragment",1);
+                    loginRegister.putExtra("getTip",true);
+                    startActivity(loginRegister);
+                    finish();
+                }else{
+                    TastyToast.makeText(WelcomeActivity.this, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
                 break;
             case R.id.bottomButtonLabReport:
-                loginRegister.putExtra("getfragment",2);
-                loginRegister.putExtra("getTip",true);
+                if(ConnectivityReceiver.isConnected()){
+                    tt = false;
+                    loginRegister.putExtra("getfragment",2);
+                    loginRegister.putExtra("getTip",true);
+                    startActivity(loginRegister);
+                    finish();
+                }else{
+                    TastyToast.makeText(WelcomeActivity.this, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
                 break;
             case R.id.bottomButtonMore:
-                loginRegister.putExtra("getfragment",3);
-                loginRegister.putExtra("getTip",true);
+                if(ConnectivityReceiver.isConnected()){
+                    tt = false;
+                    loginRegister.putExtra("getfragment",3);
+                    loginRegister.putExtra("getTip",true);
+                    startActivity(loginRegister);
+                    finish();
+                }else{
+                    TastyToast.makeText(WelcomeActivity.this, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
                 break;
 
         }
-        startActivity(loginRegister);
-        finish();
+
+
     }
 }

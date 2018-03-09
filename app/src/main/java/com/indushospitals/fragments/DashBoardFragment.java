@@ -1,5 +1,6 @@
 package com.indushospitals.fragments;
 
+import android.annotation.SuppressLint;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,10 +25,11 @@ import com.indushospitals.interfaces.FragmentLifecycle;
 import com.indushospitals.interfaces.ServerCallBackObj;
 import com.indushospitals.interfaces.listener.ActionCallback2;
 import com.indushospitals.model.DashboardItem;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
 import com.indushospitals.utils.EndlessRecyclerOnScrollListener;
 import com.indushospitals.utils.SharePreferenceData;
-
+import com.sdsmdg.tastytoast.TastyToast;
 
 
 import org.json.JSONException;
@@ -83,6 +85,7 @@ public class DashBoardFragment extends Fragment implements FragmentLifecycle {
         params.put(Constents.DOCTOR_ID, SharePreferenceData.getString( MoreActivity.self,Constents.DOCTOR_ID,"null"));
         params.put(Constents.PAGE, String.valueOf(nextPageNo));
         new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.REFERRAL_HISTORY,params ,new ServerCallBackObj() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onSuccess(JSONObject jsonObj) {
 
@@ -93,9 +96,7 @@ public class DashBoardFragment extends Fragment implements FragmentLifecycle {
                         Type type = new TypeToken<List<DashboardItem>>(){}.getType();
                         List<DashboardItem>  items = gson.fromJson(""+jsonObj.getJSONArray("data"), type);
 
-                        for(int i =0; i<items.size();i++){
-                            mPackagesList.add(items.get(i));
-                        }
+                        mPackagesList.addAll(items);
 
 
                         adapter = new DashBoardBindingAdapter( MoreActivity.self,actionCallback, mPackagesList);
@@ -119,7 +120,11 @@ public class DashBoardFragment extends Fragment implements FragmentLifecycle {
             @Override
             public void onClick(View v) {
 
-                MoreActivity.self.replaceFragment1(ReferPatientFragment.newInstance());
+                if(ConnectivityReceiver.isConnected()){
+                     MoreActivity.self.replaceFragment1(ReferPatientFragment.newInstance());
+                 }else{
+                     TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                 }
             }
         });
 
@@ -127,8 +132,12 @@ public class DashBoardFragment extends Fragment implements FragmentLifecycle {
         MoreActivity.self.moreActivityBinding.  back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                   if(ConnectivityReceiver.isConnected()){
+                       MoreActivity.self.onBackPressed();
+                   }else{
+                       TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                   }
 
-                MoreActivity.self.onBackPressed();
             }
         });
 
@@ -143,7 +152,12 @@ public class DashBoardFragment extends Fragment implements FragmentLifecycle {
         binding.btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MoreActivity.self.replaceFragment( RefferedHistoryFragment.newInstance());
+                if(ConnectivityReceiver.isConnected()){
+                    MoreActivity.self.replaceFragment( RefferedHistoryFragment.newInstance());
+                }else{
+                    TastyToast.makeText(MoreActivity.self, "NO Internet Connection!" , TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
+
             }
         });
         return binding.getRoot();

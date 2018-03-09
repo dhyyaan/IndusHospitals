@@ -5,7 +5,8 @@
         <variable name="callback" type="com.indushospitals.interfaces.listener.ActionCallback"/>
  </data>
 <LinearLayout
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:onClick="@{() -> callback.onClick(data)}" >

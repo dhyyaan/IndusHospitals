@@ -49,11 +49,8 @@
 
                 <com.indushospitals.utils.font.CenturyGothicBold
                     android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
                     android:layout_weight="1"
                     android:text="@{data.patient_name}"
                     android:textColor="@color/outrageous_orange_orange"
@@ -75,8 +72,6 @@
                         android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
                         android:layout_marginLeft="@dimen/five_dp"
                         android:gravity="left|center"
                         android:layout_gravity="left|center"
@@ -94,7 +89,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|bottom"
                     android:layout_weight="1"
@@ -116,8 +111,6 @@
                             android:id="@+id/tv_location"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
                             android:layout_marginLeft="@dimen/five_dp"
                             android:gravity="left|center"
                             android:layout_gravity="left|center"
@@ -143,8 +136,6 @@
                             android:id="@+id/tv_refer"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
                             android:layout_gravity="left|center"
                             android:layout_marginLeft="@dimen/five_dp"
                             android:gravity="left|center"

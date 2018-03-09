@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.indushospitals.R;
 import com.indushospitals.activities.MoreActivity;
 import com.indushospitals.databinding.FragmentBookingStatusBinding;
+import com.indushospitals.utils.ConnectivityReceiver;
+import com.sdsmdg.tastytoast.TastyToast;
 
 
 /**
@@ -41,9 +43,8 @@ public class BookingStatusFragment extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static BookingStatusFragment newInstance() {
-        BookingStatusFragment fragment = new BookingStatusFragment();
 
-        return fragment;
+        return new BookingStatusFragment();
     }
 
     @Override
@@ -67,18 +68,22 @@ public class BookingStatusFragment extends Fragment {
                 loginRegister7.putExtra("getTip",false);
                 startActivity(loginRegister7);
                 MoreActivity.self.finish();
-       //  MoreActivity.self.replaceFragment(DashBoardFragment.newInstance(""));
+
             }
         });
         binding.btnAnotherBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginRegister = new Intent(MoreActivity.self, MoreActivity.class);
-                loginRegister.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                loginRegister.putExtra("getfragment", 0);
-                loginRegister.putExtra("getTip",false);
-                startActivity(loginRegister);
-                MoreActivity.self.finish();
+                if(ConnectivityReceiver.isConnected()){
+                    Intent loginRegister = new Intent(MoreActivity.self, MoreActivity.class);
+                    loginRegister.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    loginRegister.putExtra("getfragment", 0);
+                    loginRegister.putExtra("getTip",false);
+                    startActivity(loginRegister);
+                    MoreActivity.self.finish();
+                }else{
+                    TastyToast.makeText(MoreActivity.self,"No internet connection!", TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                }
             }
         });
 

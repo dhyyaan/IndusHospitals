@@ -18,6 +18,7 @@ import com.indushospitals.api.baseurl.BaseUrl;
 import com.indushospitals.databinding.FragmentReferPatientBinding;
 import com.indushospitals.interfaces.ServerCallBackObj;
 import com.indushospitals.model.ValidationViewModel;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
 import com.indushospitals.utils.SharePreferenceData;
 import com.sdsmdg.tastytoast.TastyToast;
@@ -137,29 +138,35 @@ public class ReferPatientFragment extends Fragment {
                                                     paramFormSubmit.put(Constents.ADDRESS, binding.etAddress.getText().toString());
                                                     paramFormSubmit.put(Constents.COMMENTS, binding.etComments.getText().toString());
 
-                                                    new ApiGetPostData(getActivity(), Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.REFERRAL, paramFormSubmit, new ServerCallBackObj() {
-                                                        @Override
-                                                        public void onSuccess(JSONObject jsonObj) {
+                                                  if(ConnectivityReceiver.isConnected()) {
 
-                                                            try {
-                                                                if (jsonObj.getString("status").equals("true")) {
+                                                      new ApiGetPostData(getActivity(), Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.REFERRAL, paramFormSubmit, new ServerCallBackObj() {
+                                                          @Override
+                                                          public void onSuccess(JSONObject jsonObj) {
 
-                                                                    binding.etPatientName.setText(null);
-                                                                    binding.etAge.setText(null);
-                                                                    binding.rbMale.setChecked(false);
-                                                                    binding.rbFemale.setChecked(false);
-                                                                    binding.etEmail.setText(null);
-                                                                    binding.etContactNo.setText(null);
-                                                                    binding.etAddress.setText(null);
-                                                                    binding.etComments.setText(null);
+                                                              try {
+                                                                  if (jsonObj.getString("status").equals("true")) {
 
-                                                                    MoreActivity.self.replaceFragment1(RefferedHistoryFragment.newInstance());
-                                                                }
-                                                            } catch (JSONException e) {
-                                                                e.printStackTrace();
-                                                            }
-                                                        }
-                                                    }).addQueue();
+                                                                      binding.etPatientName.setText(null);
+                                                                      binding.etAge.setText(null);
+                                                                      binding.rbMale.setChecked(false);
+                                                                      binding.rbFemale.setChecked(false);
+                                                                      binding.etEmail.setText(null);
+                                                                      binding.etContactNo.setText(null);
+                                                                      binding.etAddress.setText(null);
+                                                                      binding.etComments.setText(null);
+
+                                                                      MoreActivity.self.replaceFragment1(RefferedHistoryFragment.newInstance());
+                                                                  }
+                                                              } catch (JSONException e) {
+                                                                  e.printStackTrace();
+                                                              }
+                                                          }
+                                                      }).addQueue();
+                                                  }else{
+                                                      TastyToast.makeText(getActivity(), "No internet connection!", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
+                                                  }
+
                                                 } else {
                                                     TastyToast.makeText(getActivity(), "Email is Invalid", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
 
@@ -187,29 +194,34 @@ public class ReferPatientFragment extends Fragment {
                                                 paramFormSubmit.put(Constents.ADDRESS, binding.etAddress.getText().toString());
                                                 paramFormSubmit.put(Constents.COMMENTS, binding.etComments.getText().toString());
 
-                                                new ApiGetPostData(getActivity(), Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.REFERRAL, paramFormSubmit, new ServerCallBackObj() {
-                                                    @Override
-                                                    public void onSuccess(JSONObject jsonObj) {
+                                              if(ConnectivityReceiver.isConnected()) {
 
-                                                        try {
-                                                            if (jsonObj.getString("status").equals("true")) {
-                                                                binding.inputLayoutPatient.setError("");
-                                                                binding.etPatientName.setText(null);
-                                                                binding.etAge.setText(null);
-                                                                binding.rbMale.setChecked(false);
-                                                                binding.rbFemale.setChecked(false);
-                                                                binding.etEmail.setText(null);
-                                                                binding.etContactNo.setText(null);
-                                                                binding.etAddress.setText(null);
-                                                                binding.etComments.setText(null);
+                                                  new ApiGetPostData(getActivity(), Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.REFERRAL, paramFormSubmit, new ServerCallBackObj() {
+                                                      @Override
+                                                      public void onSuccess(JSONObject jsonObj) {
 
-                                                                MoreActivity.self.replaceFragment1(RefferedHistoryFragment.newInstance());
-                                                            }
-                                                        } catch (JSONException e) {
-                                                            e.printStackTrace();
-                                                        }
-                                                    }
-                                                }).addQueue();
+                                                          try {
+                                                              if (jsonObj.getString("status").equals("true")) {
+                                                                  binding.inputLayoutPatient.setError("");
+                                                                  binding.etPatientName.setText(null);
+                                                                  binding.etAge.setText(null);
+                                                                  binding.rbMale.setChecked(false);
+                                                                  binding.rbFemale.setChecked(false);
+                                                                  binding.etEmail.setText(null);
+                                                                  binding.etContactNo.setText(null);
+                                                                  binding.etAddress.setText(null);
+                                                                  binding.etComments.setText(null);
+
+                                                                  MoreActivity.self.replaceFragment1(RefferedHistoryFragment.newInstance());
+                                                              }
+                                                          } catch (JSONException e) {
+                                                              e.printStackTrace();
+                                                          }
+                                                      }
+                                                  }).addQueue();
+                                              }else{
+                                                  TastyToast.makeText(getActivity(), "No internet connection!", TastyToast.LENGTH_SHORT, TastyToast.ERROR);
+                                              }
                                             }
 
 

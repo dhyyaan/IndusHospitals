@@ -25,6 +25,7 @@ import com.indushospitals.api.ApiGetPostData;
 import com.indushospitals.api.baseurl.BaseUrl;
 import com.indushospitals.databinding.FragmentOtpVerificationBinding;
 import com.indushospitals.interfaces.ServerCallBackObj;
+import com.indushospitals.utils.ConnectivityReceiver;
 import com.indushospitals.utils.Constents;
 import com.indushospitals.utils.SharePreferenceData;
 import com.sdsmdg.tastytoast.TastyToast;
@@ -68,25 +69,26 @@ public class OtpVerificationFragment extends Fragment {
 
                 params.put(Constents.DOCTOR_ID, SharePreferenceData.getString(MoreActivity.self, Constents.DOCTOR_ID, null));
                 params.put(Constents.OTP, binding.otpView.getOTP().toString());
+                if(ConnectivityReceiver.isConnected()){
 
-                new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.VERIFY_OTP, params, new ServerCallBackObj() {
+                  new ApiGetPostData(MoreActivity.self, Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.VERIFY_OTP, params, new ServerCallBackObj() {
                     @Override
                     public void onSuccess(JSONObject jsonObj) {
-
 
                         try {
                             if (jsonObj.getString("status").equals("true")) {
                                 SharePreferenceData.saveString(MoreActivity.self, Constents.LOGIN, "true");
 
-                                 MoreActivity.self.moreActivityBinding.logo.setClickable(true);
-                                 MoreActivity.self.moreActivityBinding.badge.setVisibility(View.VISIBLE);
-                                 MoreActivity.self.getNotificationCount();
+                                MoreActivity.self.moreActivityBinding.logo.setClickable(true);
+                                MoreActivity.self.moreActivityBinding.badge.setVisibility(View.VISIBLE);
+                                MoreActivity.self.getNotificationCount();
                                 Intent loginRegister4 = new Intent(MoreActivity.self, MoreActivity.class);
                                 loginRegister4.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                 loginRegister4.putExtra("getfragment", 5);
                                 loginRegister4.putExtra("getTip", false);
                                 startActivity(loginRegister4);
-                                MoreActivity.self. finish();
+                                MoreActivity.self.finish();
+
                             } else if (jsonObj.getString("status").equals("false")) {
                                 SharePreferenceData.saveString(MoreActivity.self, Constents.LOGIN, "false");
                                 TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.ERROR);
@@ -96,7 +98,9 @@ public class OtpVerificationFragment extends Fragment {
                         }
                     }
                 }).addQueue();
-
+            }else{
+                TastyToast.makeText(MoreActivity.self, "No internet connection!", TastyToast.LENGTH_LONG, TastyToast.ERROR);
+            }
 
             }
         });
@@ -106,23 +110,29 @@ public class OtpVerificationFragment extends Fragment {
             @Override
             public void onClick(View textView) {
 
-                Map<String, String> params = new HashMap<>();
-                params.put(Constents.DOCTOR_ID, SharePreferenceData.getString(MoreActivity.self, Constents.DOCTOR_ID, null));
-                new ApiGetPostData(getActivity(), Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.RESEND_OTP, params, new ServerCallBackObj() {
-                    @Override
-                    public void onSuccess(JSONObject jsonObj) {
-                        try {
-                            if (jsonObj.getString("status").equals("true")) {
+                 if(ConnectivityReceiver.isConnected()) {
 
-                                TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.INFO);
-                            } else {
-                                TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.ERROR);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).addQueue();
+                     Map<String, String> params = new HashMap<>();
+                     params.put(Constents.DOCTOR_ID, SharePreferenceData.getString(MoreActivity.self, Constents.DOCTOR_ID, null));
+                     new ApiGetPostData(getActivity(), Request.Method.POST, BaseUrl.BASE_URL + BaseUrl.RESEND_OTP, params, new ServerCallBackObj() {
+                         @Override
+                         public void onSuccess(JSONObject jsonObj) {
+                             try {
+                                 if (jsonObj.getString("status").equals("true")) {
+
+                                     TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.INFO);
+                                 } else {
+                                     TastyToast.makeText(MoreActivity.self, "" + jsonObj.getString("message"), TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                                 }
+                             } catch (JSONException e) {
+                                 e.printStackTrace();
+                             }
+                         }
+                     }).addQueue();
+
+                 }else{
+                     TastyToast.makeText(MoreActivity.self, "No internet connection!", TastyToast.LENGTH_LONG, TastyToast.ERROR);
+                 }
             }
 
             @Override
